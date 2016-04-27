@@ -16,7 +16,7 @@ namespace TextAdventure
             beschrieb += "Between the rumbling and the howling your ears pick up a clacking sound...";
             beschrieb += "It's a small metal plummet, smashing ceaselessly against the wood.";
         }
-
+		//neuer Kommentar
 		public override bool IstCustomCommand( string in_kommando )
 		{
 			return false;
