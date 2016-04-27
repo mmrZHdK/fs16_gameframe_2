@@ -1,6 +1,6 @@
 using System;
 
-namespace NESW_Text_live
+namespace TextAdventure
 {
 	public class JuliansOrt : Ort
 	{
