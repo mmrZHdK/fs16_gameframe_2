@@ -1,0 +1,12 @@
+
+*.exe
+
+*.mdb
+
+*.txt
+
+*.userprefs
+
+*.sln
+
+*.csproj
