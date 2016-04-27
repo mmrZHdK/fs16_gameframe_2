@@ -32,6 +32,7 @@ namespace TextAdventure
 				antwort += "what a tasteful cup of tea. ";
 				antwort += "I'd long to have another one.";
 
+				// Neuer Kommmentar zu Testzwecken
 				Console.WriteLine( antwort );
 			}
 		}
