@@ -40,7 +40,7 @@ namespace TextAdventure
 			// stamp, stomp, kick:								- if [rat not killed yet]: Player kills the rat to her/his feet.
 			//
 			// [sewer]											Tunnel with light at the end
-			// (follow, go, move) tunnel, light, exit:			Player enters Moritz' chest room
+			// (follow, go, move) tunnel, light, exit:			Player enters Moritz' fancy chest room
 			// b, back, return:									Player cannot find back to catacombs
 		}
 		
