@@ -16,8 +16,16 @@ namespace TextAdventure
 		protected string bezug = "in";
 		protected string beschrieb;
 
+		// Property für die Verknüpfungen des Raums
+		// zu anderen Räumen
 		Dictionary<string, Ort> verknuepfung =
 			new Dictionary<string, Ort>();
+
+		// Property für die Dinge, die in diesem Raum
+		// sind
+		Dictionary<string, Ding> dinge =
+			new Dictionary<string, Ding>();
+		
 
 		// -- Konstruktor des allgemeinen Ortes ohne Parameter
 		public Ort ()
