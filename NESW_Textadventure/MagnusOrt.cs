@@ -7,6 +7,7 @@ namespace TextAdventure
 	{
 		public MagnusOrt ()
 		{
+			// Noch was
 			name = "small library";
 			beschrieb = "This library is packed with books. From a high woodden ceiling ";
 			beschrieb += "down to the ground there are shelfloads of books of all sizes. ";
@@ -32,6 +33,7 @@ namespace TextAdventure
 				antwort += "what a tasteful cup of tea. ";
 				antwort += "I'd long to have another one.";
 
+				// Neuer Kommmentar zu Testzwecken
 				Console.WriteLine( antwort );
 			}
 		}

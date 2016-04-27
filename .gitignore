@@ -10,3 +10,7 @@
 *.sln
 
 *.csproj
+
+NESW_Textadventure/NESW_Textadventure/Properties/AssemblyInfo.cs
+
+NESW_Textadventure/NESW_Textadventure/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
