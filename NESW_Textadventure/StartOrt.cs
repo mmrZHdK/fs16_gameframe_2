@@ -16,7 +16,7 @@ namespace TextAdventure
 			beschrieb += "Somewhere in the rooms there must be an open fire burning since you ";
 			beschrieb += "can smell it's oak wood smoke. You hear several whispers from behind ";
 			beschrieb += "but look to see nothing.";
-			// Ding apfel = new Ding ("apple");
+			Ding apfel = new Ding ("apple");
 		}
 
 		// Implementiert die geforderte Methode
