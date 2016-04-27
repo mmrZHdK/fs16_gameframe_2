@@ -7,6 +7,7 @@ namespace TextAdventure
 	{
 		public MagnusOrt ()
 		{
+			// Noch was
 			name = "small library";
 			beschrieb = "This library is packed with books. From a high woodden ceiling ";
 			beschrieb += "down to the ground there are shelfloads of books of all sizes. ";
