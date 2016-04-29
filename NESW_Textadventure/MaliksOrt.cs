@@ -14,16 +14,34 @@ namespace TextAdventure
 			beschrieb += "On the East side you see a big green tree. It's green and on the top you can see a wooden house.";
 			beschrieb += "On the West side you see a small toolsheed. Obviusly for the garden";
 
+			// Der Benutzer kann nach westen um in den Schuppen (von Martina) zu gelangen
+			// oder nach osten um in einem Baumhaus (vom Sebi) zu kommen
+			// der Benutzer kann hier Wasser trinken, Äpfel essen oder sich ausruhen
+
 		}
 		public override bool IstCustomCommand( string in_kommando )
 		{
-			return false;
+			return (in_kommando == "drink water" || in_kommando == "eat apple" || in_kommando == "rest");
 		}
-		public override void BehandleCustomCommand( string in_kommando ) //elf
+		public override void BehandleCustomCommand( string in_kommando )
 		{
-		}
+			if (in_kommando == "drink water") {
+				string antwort = "Wow this water is really, really, REALLY HARD ULTRA HARDCORE FRESH!!";
+
+				Console.WriteLine (antwort);
+			} else if (in_kommando == "eat apple") {
+
+				string antwort = "Mhmmmm... so delicious :)";
+
+				Console.WriteLine (antwort);
+			} else if (in_kommando == "rest") {
+
+				string antwort = "You take a long nap. An after a while you wake up and you feel refreshed.";
+
+				Console.WriteLine (antwort);
+			}
 	}
 
 }
 
-
+}
