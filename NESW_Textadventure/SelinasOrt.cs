@@ -14,17 +14,18 @@ namespace TextAdventure
 			beschrieb += "In the south is the door to the kitchen. ";
 			beschrieb += "All other walls are covered with shelves which are packed with canned food. ";
 			beschrieb += "You see a rat sneaking around the shelves. ";
-				
 		}
+
+		//Dinge in meinem Raum
+		Ding rat = new Ding ("rat");
+		Ding ravioli = new Ding ("Canned Ravioli");
+		Ding gab = new Ding ("crack in the wall");
 
 
 		//Befehle, die nur in meinem Raum möglich sind
 		public override bool IstCustomCommand(string in_kommando){
 
 			return ((in_kommando == "look") || (in_kommando == "take food") || (in_kommando == "squeeze")) ;
-
-
-
 
 		}
 
