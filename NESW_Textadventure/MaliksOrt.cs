@@ -4,9 +4,7 @@ using TextAdventure;
 namespace TextAdventure
 {
 	public class MaliksOrt : Ort
-	{/// <summary>
-	/// hjkhkbh
-	///
+	{
 		public MaliksOrt ()
 		{
 			name = "Malik's Garden";

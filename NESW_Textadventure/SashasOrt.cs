@@ -1,6 +1,6 @@
 ﻿using System;
 using TextAdventure;
-// UTF8( bitte)
+
 namespace TextAdventure
 {
 	public class SashasOrt : Ort
@@ -25,5 +25,3 @@ namespace TextAdventure
 		}
 	}
 }
-
-
