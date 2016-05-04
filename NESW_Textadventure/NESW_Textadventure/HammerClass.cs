@@ -5,12 +5,13 @@ namespace TextAdventure
 {
 	public class HammerClass : Ding
 	{
+		
 		 
 		public HammerClass ()
 		{
 			name = "hammer";
-	//		string beschreibung = "bla bla bla hammer";
-	//		Console.WriteLine (beschreibung);
+			beschrieb = "The hammer looks great. It looks like you can break something with it.";
+
 		}
 	}
 }

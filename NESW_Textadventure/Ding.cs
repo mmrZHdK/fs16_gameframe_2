@@ -8,6 +8,7 @@ namespace TextAdventure
 		// -- Properties, die alle Dinge haben sollen
 		// Der Name eines Dings
 		public string name = "untitled item";
+		public string beschrieb;
 
 		public Ding ( string in_name )
 		{
