@@ -102,6 +102,8 @@ namespace TextAdventure
 
 			tobias_ort.VerknuepfeOrt( "n", start_ort );
 			tobias_ort.VerknuepfeOrt( "s", maliks_ort );
+			// TODO
+
 
 			// -- Start Ort aktivieren
 			// Der Ort, an dem das Adventure beginnt,
