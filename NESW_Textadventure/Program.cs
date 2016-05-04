@@ -65,8 +65,8 @@ namespace TextAdventure
 			maliks_ort.VerknuepfeOrt( "e", martinas_ort );
 			// TODO
 
-			marcellos_ort.VerknuepfeOrt( "?", arnos_ort );
-			marcellos_ort.VerknuepfeOrt( "?", selinas_ort );
+			marcellos_ort.VerknuepfeOrt( "e", arnos_ort );
+			marcellos_ort.VerknuepfeOrt( "w", selinas_ort );
 			marcellos_ort.VerknuepfeOrt( "s", magnus_ort );
 			// TODO
 
