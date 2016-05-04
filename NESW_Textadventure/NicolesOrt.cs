@@ -17,25 +17,33 @@ namespace TextAdventure
 			//beschrieb += "West to you a small door leads to the kitchen. South to you lies the lobby. ";
 
 			//Dinge im Raum
+			Ding pendulum = new Ding ("long case clock with a pendulum"); 
+			this.VerknuepfeDing (pendulum);
+			Ding table = new Ding ("laid table"); 
+			this.VerknuepfeDing (table);
+			Ding scherbe = new Ding ("shard");
+			this.VerknuepfeDing (scherbe);
 			Ding gabel = new Ding ("fork"); 
 			this.VerknuepfeDing (gabel);
-			Ding scherbe = new Ding ("shard");
-
 		}
+
 
 		// mögliche Befehle spezifisch im Raum
 
 		public override bool IstCustomCommand(string in_kommando){
 
 			return ((in_kommando == "open window") || (in_kommando == "eat") || (in_kommando == "swing pendulum") || (in_kommando == "sit down") ||
-					(in_kommando == "take shard") || (in_kommando == "take fork"));
+					(in_kommando == "move draperies") ||(in_kommando == "take shard") || (in_kommando == "take fork"));
 		}
 
 		// Reaktionen auf mögliche Befehle
 
 		public override void BehandleCustomCommand(string in_kommando){
 			if (in_kommando == "open window") {
-				string antwort = "There is no way to open the windows, but behind the draperies you find a shattered pane. Shards laying around. ";
+				string antwort = "There is no way to open the windows. ";
+				Console.WriteLine (antwort);
+			} else if (in_kommando == "move draperies") {
+				string antwort = "Behind the draperies you find a shattered pane. Shards laying around. ";
 				Console.WriteLine (antwort);
 			} else if (in_kommando == "swing pendulum") {
 				string antwort = "As soon as you bring the pendulum into movement, the clock starts ticking. The hands reach twelve o'clock and a bell rings somewhere far in the mansion. ";
