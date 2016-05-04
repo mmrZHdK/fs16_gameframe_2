@@ -15,15 +15,49 @@ namespace TextAdventure
 			beschrieb += "The only source of light originates from the spine of a book. Self-illuminating, it seems...";
 			beschrieb += "It's quite far up the bookshelf, you can't reach it.";
 		}
-		public override bool IstCustomCommand( string in_kommando )
-		{
-			return false;
-		}
-		public override void BehandleCustomCommand( string in_kommando )
-		{
-		}
-	}
 
+		//Befehle, die nur in meinem Raum möglich sind
+		public override bool IstCustomCommand(string in_kommando){
+
+			return ((in_kommando == "climb") || (in_kommando == "place ladder") || (in_kommando == "open book") || (in_kommando == "take book") || (in_kommando == "squeeze")) ;
+
+			//	
+
+		}
+
+
+		Ding book = new Ding ("book");
+		Ding gab = new Ding ("crack in the wall");
+
+
+		public override void BehandleCustomCommand(string in_kommando){
+			if (in_kommando == "climb") {
+				string antwort = "You climb up far enough to reach the glowing book. ";
+				Console.WriteLine (antwort);
+			} else if (in_kommando == "take book") {
+				string antwort = "As you take the glowing book, a slight shiver runs down your spine...";
+				Console.WriteLine (antwort);
+			}  else if (in_kommando == "open book") {
+				string antwort = "you're holding the glowing book in your hands. As you open it, the glow increases infinitly. It's so bright that you have to close your eyes. The ground begins to shake...";
+				Console.WriteLine (antwort);
+
+			} else if (in_kommando == "squeeze") {
+				string antwort = "You breathe out and move your left arm into the small crack. You managed to pull yourself trough the crack. You are reliefed as you left the crack on the other side.";
+				Console.WriteLine (antwort);
+				// Selinas Raum aufrufen
+				//SelinasOrt.LosGehts ();
+			}else if (in_kommando == "place ladder") {
+				string antwort = "You placed the ladder on the book shelf.";
+				Console.WriteLine (antwort);
+
+			}else if (in_kommando == "default") {
+				string antwort = "better do something reasonable...";
+				Console.WriteLine (antwort);
+
+			}
+		}
+
+	}
 }
 
 
