@@ -9,7 +9,7 @@ namespace TextAdventure
 		 
 		public HammerClass ()
 		{
-			name = "hammer";
+			name = "hammer"; 
 			beschrieb = "The hammer looks great. It looks like you can break something with it.";
 
 		}
