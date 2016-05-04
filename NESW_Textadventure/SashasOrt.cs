@@ -42,7 +42,7 @@ namespace TextAdventure
 				Console.WriteLine (antwort);
 				//	rooms["martinas_ort"].LosGehts ();
 			}
-			else if (in_kommando == "light torch") {
+			else if (in_kommando == "light torch") {    /// test kommentare
 				string antwort = "No, you have nothing to light the torch with.";
 
 				Console.WriteLine (antwort);
