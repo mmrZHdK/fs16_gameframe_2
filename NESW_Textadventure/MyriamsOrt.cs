@@ -18,6 +18,14 @@ namespace TextAdventure
 			beschrieb += "Ping!";
 			beschrieb += "It fell on the floor and points to a woody old door.";
 
+			// erzeugt ein neues Standart Ding
+			Ding apfel = new Ding ("apple");
+			this.VerknuepfeDing (apfel);
+
+			Ding messer = new Ding ("knife");
+			this.VerknuepfeDing (messer);
+
+
 			beschrieb += "The woody old door leads you to the pantry.";//South. Speisekammer von Selina
 			beschrieb += "The old door leads you to the dining room ";//West. Speisesaal von Nicole
 
