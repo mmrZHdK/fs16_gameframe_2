@@ -13,7 +13,7 @@ namespace TextAdventure
 			beschrieb += "To your right you can see a leather that leads to a rotten treehouse";
 			beschrieb += "On your left is an overgrown winder behind a few plant pots full of weed";
 			beschrieb += "A strange voice comes out of the hole";
-	//cut thorns (need sword or something else to cut) to use winder, to save helpful gnome who's trapped down the well
+			//cut thorns (need sword or something else to cut) to use winder, to save helpful gnome who's trapped down the well
 		}
 
 		public override bool IstCustomCommand( string in_kommando )

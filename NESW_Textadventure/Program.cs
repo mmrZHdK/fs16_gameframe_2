@@ -61,8 +61,8 @@ namespace TextAdventure
 			julians_ort.VerknuepfeOrt( "?", moritz_ort );
 			// TODO
 
-			maliks_ort.VerknuepfeOrt( "?", sebis_ort );
-			maliks_ort.VerknuepfeOrt( "?", martinas_ort );
+			maliks_ort.VerknuepfeOrt( "e", sebis_ort );
+			maliks_ort.VerknuepfeOrt( "w", martinas_ort );
 			// TODO
 
 			marcellos_ort.VerknuepfeOrt( "?", arnos_ort );
@@ -70,7 +70,7 @@ namespace TextAdventure
 			marcellos_ort.VerknuepfeOrt( "s", magnus_ort );
 			// TODO
 
-			martinas_ort.VerknuepfeOrt( "?", maliks_ort );
+			martinas_ort.VerknuepfeOrt( "e", maliks_ort );
 			// TODO
 
 			michis_ort.VerknuepfeOrt( "?", moritz_ort );
@@ -87,9 +87,11 @@ namespace TextAdventure
 			nicoles_ort.VerknuepfeOrt( "s", start_ort );
 
 			sashas_ort.VerknuepfeOrt( "s", martinas_ort );
+			sashas_ort.VerknuepfeOrt( "e", julians_ort );
+			sashas_ort.VerknuepfeOrt( "n", magnus_ort );
 			// TODO
 
-			sebis_ort.VerknuepfeOrt( "?", maliks_ort );
+			sebis_ort.VerknuepfeOrt( "w", maliks_ort );
 			sebis_ort.VerknuepfeOrt( "?", michis_ort );
 			// TODO
 

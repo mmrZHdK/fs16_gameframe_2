@@ -52,7 +52,7 @@ namespace TextAdventure
 //						Console.WriteLine();
 //						neuer_ort.Los_gehts ();
 //					//prüfe ob einer der StringArrays das kommando enthält > wenn ja prüfe progress und gib entsprechenden string aus.NOCH NICHT GEMACHT.
-
+//
 //					} else {
 //						Console.WriteLine ("Hmmm... that seems to be impossible around here.");
 //						Console.WriteLine();
@@ -70,5 +70,3 @@ namespace TextAdventure
 		}
 	}
 }
-
-
