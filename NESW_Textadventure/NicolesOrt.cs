@@ -16,11 +16,12 @@ namespace TextAdventure
 			beschrieb += "is standing still. ";
 			//beschrieb += "West to you a small door leads to the kitchen. South to you lies the lobby. ";
 
-		}
+			//Dinge im Raum
+			Ding gabel = new Ding ("fork"); 
+			this.VerknuepfeDing (gabel);
+			Ding scherbe = new Ding ("shard");
 
-		//Dinge im Raum
-		Ding fork = new Ding ("fork"); 
-		Ding shard = new Ding ("shard");
+		}
 
 		// mögliche Befehle spezifisch im Raum
 
