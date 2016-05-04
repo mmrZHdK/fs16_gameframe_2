@@ -6,7 +6,8 @@ namespace TextAdventure
 	public class Ding
 	{
 		// -- Properties, die alle Dinge haben sollen
-		protected string name = "untitled item";
+		// Der Name eines Dings
+		public string name = "untitled item";
 
 		public Ding ( string in_name )
 		{
@@ -14,4 +15,3 @@ namespace TextAdventure
 		}
 	}
 }
-

@@ -7,6 +7,8 @@ namespace TextAdventure
 	{
 		public StartOrt ()
 		{
+			// Setze die Eigenschaften dieses Orts
+			// in den ererbten Instanz Variablen (siehe Klasse Ort)
 			name = "entrance hall";
 			bezug = "in";
 			beschrieb = "Welcome to Nakov's Mansion.\n";
@@ -16,7 +18,12 @@ namespace TextAdventure
 			beschrieb += "Somewhere in the rooms there must be an open fire burning since you ";
 			beschrieb += "can smell it's oak wood smoke. You hear several whispers from behind ";
 			beschrieb += "but look to see nothing.";
+
+			// erzeuge ein neues Standard Ding
 			Ding apfel = new Ding ("apple");
+			this.VerknuepfeDing( apfel );
+			Ding ei = new Ding ("egg");
+			this.VerknuepfeDing( ei );
 		}
 
 		// Implementiert die geforderte Methode
