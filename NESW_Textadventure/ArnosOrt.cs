@@ -32,7 +32,7 @@ namespace TextAdventure
 
 		Ding mindray = new Ding ("mindray");
 		this.VerknuepfeDing( mindray );
-		Ding mousebook = new Ding ("mousebook");
+		DingMousebook mousebook = new DingMousebook ("mousebook");
 		this.VerknuepfeDing( mousebook );
 
 		public override bool IstCustomCommand( string in_kommando ){
