@@ -13,5 +13,8 @@ namespace TextAdventure
 		{
 			name = in_name;
 		}
+
+		public Ding(){
+		}
 	}
 }

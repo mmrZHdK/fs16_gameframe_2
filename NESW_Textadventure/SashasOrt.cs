@@ -18,8 +18,9 @@ namespace TextAdventure
 			beschrieb += "The stairs to the library are on the north side of the dungeon";//north to library
 			beschrieb += "The light comes from the hole in the wall on the west side"; // west to Julians Ort
 
-			Ding hammer = new Ding ("hammer");
+			HammerClass hammer = new HammerClass();
 			this.VerknuepfeDing(hammer);
+
 
 		}
 
