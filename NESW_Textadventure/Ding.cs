@@ -9,6 +9,10 @@ namespace TextAdventure
 		// Der Name eines Dings
 		public string name = "untitled item";
 
+		public Ding()
+		{
+		}
+
 		public Ding ( string in_name )
 		{
 			name = in_name;
