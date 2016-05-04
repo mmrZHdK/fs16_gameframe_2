@@ -2,6 +2,32 @@ using System;
 
 namespace TextAdventure
 {
+	// Klasse fuer Aufnehmbare Objekt
+	public sealed class CatacombTorch : Ding
+	{
+		private int helligkeit;			// In Lumen
+		private int leuchtdauer;		// In Sekunden
+		
+		// Constructor
+		public CatacombTorch(string name, int lumen, int leuchtdauer) : base(name)
+		{
+			this.helligkeit = lumen;
+			this.leuchtdauer = leuchtdauer;
+		}
+		
+		// Properties
+		public int Helligkeit
+		{
+			get { return helligkeit; }
+		}
+		
+		public int Leuchtdauer
+		{
+			get { return leuchtdauer; }
+		}
+	}
+	
+	// Ortsklasse
 	public class JuliansOrt : Ort
 	{
 		private string position = "catacombs";
@@ -43,6 +69,11 @@ namespace TextAdventure
 			// (follow, go, move) tunnel, light, exit:			Player enters Moritz' fancy chest room
 			// b, back, return:									Player cannot find back to catacombs
 		}
+		
+		// Aufnehmbare Objekte
+		
+		// Fakel: 500 Lumen, 2 Minuten Leuchtdauer
+		CatacombTorch torchObject = new CatacombTorch("torch", 500, 120);
 		
 		// Moegliche commands
 		public override bool IstCustomCommand(string in_kommando)
