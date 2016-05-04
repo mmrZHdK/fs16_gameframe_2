@@ -24,16 +24,16 @@ namespace TextAdventure
 			beschrieb += "Maybe you can unread the book? ";
 			beschrieb += "You can also spot a strange book on the other side of the room. ";
 			beschrieb += "Maybe you can exit this world the same way you've entered it. ";
-		}
 			
-		//Eine Gedächtnis-löschende Waffe, "mindray", benutze mit "take", "use"
-		//Ein weiteres Buch mit einer Maus, "mouse-book", benutze mit "take", "read"
-		//Befehle, um nichts zu machen, "stay" und "sleep"
+			//Eine Gedächtnis-löschende Waffe, "mindray", benutze mit "take", "use"
+			//Ein weiteres Buch mit einer Maus, "mouse-book", benutze mit "take", "read"
+			//Befehle, um nichts zu machen, "stay" und "sleep"
 
-		Ding mindray = new Ding ("mindray");
-		this.VerknuepfeDing( mindray );
-		DingMousebook mousebook = new DingMousebook ("mousebook");
-		this.VerknuepfeDing( mousebook );
+			Ding mindray = new Ding ("mindray");
+			this.VerknuepfeDing( mindray );
+			//DingMousebook mousebook = new DingMousebook ("mousebook");
+			//this.VerknuepfeDing( mousebook );
+		}
 
 		public override bool IstCustomCommand( string in_kommando ){
 			return (in_kommando == "take mindray" ) || (in_kommando == "use mindray") || (in_kommando == "take mousebook") || (in_kommando == "read mousebook") || (in_kommando == "stay") || (in_kommando == "sleep");
