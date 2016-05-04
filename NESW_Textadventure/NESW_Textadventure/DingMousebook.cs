@@ -1,12 +1,17 @@
 ﻿using System;
+using TextAdventure;
 
-namespace NESW_Textadventure
+namespace TextAdventure
 {
-	public class DingMindray
+	public class DingMousebook : Ding
 	{
-		public DingMindray ()
+		public DingMousebook ()
 		{
+			name = "mousebook";
+		}
+		public string read(){
+
 		}
 	}
 }
-
+	
