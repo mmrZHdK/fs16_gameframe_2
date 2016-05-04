@@ -166,6 +166,18 @@ namespace TextAdventure
 		}
 
 		public bool IstDingKommando( string in_kommando ) {
+
+			// Teile das Kommando auf
+			// Teile an der Leertaste auf
+			// Resultat zwei einzelne Strings (können auch mehr sein)
+			// Nimm den zweiten Teil (... dritten, vierten)
+
+			// Schlaufe durchs Dictionary dinge durch
+			// Namen aus dem Eintrag holen (Key)
+			// Vergleiche: Zweiter Teil in_kommando
+			//  mit Namen (Key von Eintrag)
+			// wenns passt
+			// Ding aus Eintrag holen ( Value)
 			return false;
 		}
 
