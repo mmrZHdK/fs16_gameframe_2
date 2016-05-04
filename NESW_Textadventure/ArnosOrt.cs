@@ -20,7 +20,7 @@ namespace TextAdventure
 			beschrieb += "There is no escape. ";
 			beschrieb += "... ";
 			beschrieb += "But what is that? ";
-			beschrieb += "A magic mind-erasing gun that nobody else has even thought of using? ";
+			beschrieb += "A magic mind-erasing mindray that nobody else has even thought of using? ";
 			beschrieb += "Maybe you can unread the book? ";
 			beschrieb += "You can also spot a strange book on the other side of the room. ";
 			beschrieb += "Maybe you can exit this world the same way you've entered it. ";
@@ -30,27 +30,32 @@ namespace TextAdventure
 		//Ein weiteres Buch mit einer Maus, "mouse-book", benutze mit "take", "read"
 		//ein Befehl, um nichts zu machen, "stay"
 
+		Ding mindray = new Ding ("mindray");
+		this.VerknuepfeDing( mindray );
+		Ding mausbuch = new Ding ("mousebook");
+		this.VerknuepfeDing( mausbuch )
+
 		public override bool IstCustomCommand( string in_kommando ){
-			return (in_kommando == "take gun" ) || (in_kommando == "use gun") || (in_kommando == "take mouse-book") || (in_kommando == "read mouse-book") || (in_kommando == "stay");
+			return (in_kommando == "take mindray" ) || (in_kommando == "use mindray") || (in_kommando == "take mousebook") || (in_kommando == "read mousebook") || (in_kommando == "stay");
 		}
 
 		public override void BehandleCustomCommand( string in_kommando ){
-			if (in_kommando == "take gun") {
+			if (in_kommando == "take mindray") {
 				string antwort = "Shiny, but ineffective Steampunk Design. There are unnecessary cogs and lightbulbs everywhere. ";
 				Console.WriteLine (antwort);
 			}
-			else if (in_kommando == "use gun") {
+			else if (in_kommando == "use mindray") {
 				string antwort = "You return to the hidden book chamber. ";
 				antwort += "The book in your hands reminds you of something... ";
 				antwort += "What a curious incident it was. Let us never speak of it again. ";
 				Console.WriteLine (antwort);
 			}
-			else if (in_kommando == "take mouse-book") {
+			else if (in_kommando == "take mousebook") {
 				string antwort = "It is bound in what appears to be human skin. The inscription on its ridge reads ";
 				antwort += "'Necronomicon ex mortis'. On its first page is written in blood 'Klaatu berada nikto'. ";
 				Console.WriteLine (antwort);
 			}
-			else if (in_kommando == "read mouse-book") {
+			else if (in_kommando == "read mousebook") {
 				string antwort = "Suddenly, a bright light engulfs you, and everything turns white. ";
 				antwort += "Strange creatures stare at you, their faces a cruel amalgamation ";
 				antwort += "of rodent and rodent features.";
