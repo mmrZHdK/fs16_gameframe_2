@@ -26,7 +26,7 @@ namespace TextAdventure
 
 		public override bool IstCustomCommand(string in_kommando){
 
-			return ((in_kommando == "open window") || (in_kommando == "eat") || (in_kommando == "swing pendulum") || (in_kommando == "sit down")
+			return ((in_kommando == "open window") || (in_kommando == "eat") || (in_kommando == "swing pendulum") || (in_kommando == "sit down") ||
 					(in_kommando == "take shard") || (in_kommando == "take fork"));
 		}
 
