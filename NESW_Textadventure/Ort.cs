@@ -18,7 +18,7 @@ namespace TextAdventure
 
 		// Property für die Verknüpfungen des Raums
 		// zu anderen Räumen
-		Dictionary<string, Ort> verknuepfung =
+		Dictionary<string, Ort> verknuepfungen =
 			new Dictionary<string, Ort>();
 
 		// Property für die Dinge, die in diesem Raum
@@ -45,8 +45,8 @@ namespace TextAdventure
 		// - eine Instanz des Ortes, wohin die Verknüpfung führt
 		public void VerknuepfeOrt( string in_schluessel, Ort in_neuer_ort )
 		{
-			//verknuepfung.Add( in_schluessel, in_neuer_ort );
-			verknuepfung[ in_schluessel ] = in_neuer_ort;
+			//verknuepfungen.Add( in_schluessel, in_neuer_ort );
+			verknuepfungen[ in_schluessel ] = in_neuer_ort;
 		}
 
 		// -- Starten eines Ortes
@@ -62,11 +62,11 @@ namespace TextAdventure
 				kommando = Console.ReadLine ();
 
 				// Prüfe ob das kommando erkannt wird
-				if ( verknuepfung.ContainsKey (kommando) ) {
+				if ( verknuepfungen.ContainsKey (kommando) ) {
 					// Juchu, es ist ein Richtungskommando
 					// Hole den Ort, zu dem dieses Kommando führt
-					Ort neuer_ort = verknuepfung [kommando];
-					// Ort neuer_ort = verknuepfung.VGet( kommando );
+					Ort neuer_ort = verknuepfungen [kommando];
+					// Ort neuer_ort = verknuepfungen.VGet( kommando );
 
 					Console.WriteLine();  // Leerzeile ausgeben
 					neuer_ort.LosGehts ();	// neuen Ort ausführen
@@ -83,7 +83,7 @@ namespace TextAdventure
 					Console.WriteLine ("Hmmm... that seems to be impossible around here.");
 					Console.WriteLine();
 				}
-			} while ( !verknuepfung.ContainsKey (kommando) );
+			} while ( !verknuepfungen.ContainsKey (kommando) );
 		}
 
 		// Methode gibt die ausführliche Beschreibung
@@ -104,9 +104,9 @@ namespace TextAdventure
 			// Ausgabe
 			// - richtung, in die man gehen kann
 			// - name des Ortes, der dann erreicht wird
-			foreach (var verknuepf in verknuepfung) {
-				string richtung = verknuepf.Key;
-				Ort ort = verknuepf.Value;
+			foreach (var verknuepfung in verknuepfungen) {
+				string richtung = verknuepfung.Key;
+				Ort ort = verknuepfung.Value;
 				string name = ort.name;
 
 				Console.WriteLine ("To the " + richtung + " you see " + name);
