@@ -26,14 +26,14 @@ namespace TextAdventure
 			beschrieb += "Maybe you can exit this world the same way you've entered it. ";
 		}
 			
-		//Eine Gedächtnis-löschende Waffe, "gun", benutze mit "take", "use"
+		//Eine Gedächtnis-löschende Waffe, "mindray", benutze mit "take", "use"
 		//Ein weiteres Buch mit einer Maus, "mouse-book", benutze mit "take", "read"
 		//ein Befehl, um nichts zu machen, "stay"
 
 		Ding mindray = new Ding ("mindray");
 		this.VerknuepfeDing( mindray );
-		Ding mausbuch = new Ding ("mousebook");
-		this.VerknuepfeDing( mausbuch )
+		Ding mousebook = new Ding ("mousebook");
+		this.VerknuepfeDing( mousebook );
 
 		public override bool IstCustomCommand( string in_kommando ){
 			return (in_kommando == "take mindray" ) || (in_kommando == "use mindray") || (in_kommando == "take mousebook") || (in_kommando == "read mousebook") || (in_kommando == "stay");
