@@ -5,10 +5,11 @@ namespace TextAdventure
 {
 	public class MyriamsDing: Ding
 	{
-
-		public MyriamsDing (string in_name) : base(in_name)
+		
+		public MyriamsDing () 
 		{
-
+			name = "apple";
+			beschrieb = "red perfect";
 		}
 	}
 }
