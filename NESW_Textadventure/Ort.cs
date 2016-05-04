@@ -178,7 +178,36 @@ namespace TextAdventure
 			//  mit Namen (Key von Eintrag)
 			// wenns passt
 			// Ding aus Eintrag holen ( Value)
-			return false;
+
+			Console.WriteLine ("-- untersuche ding kommando");
+			bool istDingKommando = false;
+
+			List<string> dingteile = in_kommando.Split (' ').ToList();
+			dingteile.RemoveAt (0);
+
+			List<string> kommandoteile = in_kommando.Split (' ').ToList ();
+			kommandoteile.RemoveAt (kommandoteile.Count - 1);
+			string kommando = String.Join( " ", kommandoteile);
+
+			foreach (var dingteil in dingteile) {
+				Console.WriteLine ("-- untersuche " + dingteil);
+
+				foreach( var dingEintrag in dinge) {
+					Ding ding = dingEintrag.Value;
+
+					if ( ding.name.Split( ' ' ).ToList().Contains( dingteil ) ) {
+						// Ding identifiziert
+						Console.WriteLine( "-- gefunden " + ding.name );
+						Console.WriteLine ("-- untersuche " + kommando);
+
+						if ( ding.HatKommando( kommando ) ) {
+							istDingKommando = true;
+							Console.WriteLine( ding.name  + " kennt " + kommando );
+						}
+					}
+				}
+			}
+			return istDingKommando;
 		}
 
 		public void BehandleDingKommando( string in_kommando ) {

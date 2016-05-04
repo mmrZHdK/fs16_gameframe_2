@@ -24,5 +24,9 @@ namespace TextAdventure
 		{
 			name = in_name;
 		}
+
+		public virtual bool HatKommando( string in_kommando ) {
+			return false;
+		}
 	}
 }
