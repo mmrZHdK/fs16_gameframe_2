@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 using TextAdventure;
 
 namespace TextAdventure
@@ -61,7 +63,7 @@ namespace TextAdventure
 				Console.WriteLine( "What do you want to do?" );
 				kommando = Console.ReadLine ();
 
-				// Prüfe ob das kommando erkannt wird
+				// Prüfe ob das kommando als Bewegung erkannt wird
 				if ( verknuepfungen.ContainsKey (kommando) ) {
 					// Juchu, es ist ein Richtungskommando
 					// Hole den Ort, zu dem dieses Kommando führt
@@ -79,6 +81,10 @@ namespace TextAdventure
 					// Juchu, es ist ein Kommando mit Ding
 					BehandleDingKommando( kommando );
 
+				} else if ( kommando == "things" ) {
+					// Es ist ein allgemeines Kommando
+					DingListeAusgeben();
+
 				} else {
 					Console.WriteLine ("Hmmm... that seems to be impossible around here.");
 					Console.WriteLine();
@@ -95,8 +101,10 @@ namespace TextAdventure
 			Console.WriteLine (beschrieb);
 		}
 
-		// Methode gibt die Liste der Richtungskommandos und
-		// die damit erreichbaren Räume aus
+		// Methode gibt die Liste der Richtungs-
+		// kommandos und die damit erreichbaren Räume
+		// aus
+		//                                          -|
 		public void WegbeschreibungAusgeben() {
 			// Danach gangbare Wege anzeigen
 			// Vorgehensweise:
@@ -113,6 +121,29 @@ namespace TextAdventure
 			}
 		}
 
+		// Methode gibt die Liste der Dinge aus, die
+		// sich im Ort befinden
+		//                                          -|
+		public void DingListeAusgeben() {
+			Console.Write( "You can see the following things around here: " );
+
+			// Liste der Einträge in dinge ausgeben
+			// Schlaufe durch alle Einträge in dinge
+			// Ausgabe
+			// - name des Dings
+			// - Komma, wenn nicht das letzte
+			foreach ( var ding_eintrag in dinge ) {
+				string name = ding_eintrag.Key;
+
+				if ( !ding_eintrag.Equals( dinge.Last() ) ) {
+					Console.Write( name + ", " );
+				} else {
+					Console.WriteLine( name );
+				}
+			}
+		}
+
+
 		// Abstrakte Formulierung einer Methode, die
 		// Custom Commands identifiziert
 		// Wird hier nicht implementiert, sondern dient
@@ -126,6 +157,13 @@ namespace TextAdventure
 		// als Vorgabe, die die erbenden, speziellen Räume
 		// implementieren müssen
 		public abstract void BehandleCustomCommand (string in_kommando);
+
+		public void VerknuepfeDing ( Ding in_ding )
+		{
+			// Speichere das Ding unter seinem Namen im
+			// Dictionary für dinge
+			dinge[ in_ding.name ] = in_ding;
+		}
 
 		public bool IstDingKommando( string in_kommando ) {
 			return false;
