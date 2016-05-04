@@ -30,11 +30,11 @@ namespace TextAdventure
 		//Ein weiteres Buch mit einer Maus, "mouse-book", benutze mit "take", "read"
 		//ein Befehl, um nichts zu machen, "stay"
 
-		public override bool Istcustomcommand( string in_kommando ){
+		public override bool IstCustomCommand( string in_kommando ){
 			return (in_kommando == "take gun" ) || (in_kommando == "use gun") || (in_kommando == "take mouse-book") || (in_kommando == "read mouse-book") || (in_kommando == "stay");
 		}
 
-		public override void Behandlecustomcommand( string in_kommando ){
+		public override void BehandleCustomCommand( string in_kommando ){
 			if (in_kommando == "take gun") {
 				string antwort = "Shiny, but ineffective Steampunk Design. There are unnecessary cogs and lightbulbs everywhere. ";
 				Console.WriteLine (antwort);
@@ -44,7 +44,6 @@ namespace TextAdventure
 				antwort += "The book in your hands reminds you of something... ";
 				antwort += "What a curious incident it was. Let us never speak of it again. ";
 				Console.WriteLine (antwort);
-				MarcellosOrt.Los_gehts ();
 			}
 			else if (in_kommando == "take mouse-book") {
 				string antwort = "It is bound in what appears to be human skin. The inscription on its ridge reads ";
@@ -58,7 +57,6 @@ namespace TextAdventure
 				antwort += "This is the colony of the mouse-mice. ";
 				antwort += "There is no escape...";
 				Console.WriteLine (antwort);
-				StartOrt.Los_gehts ();
 			}
 			else if (in_kommando == "stay") {
 				string antwort = "You decided not to risk it and integrate yourself into the Mouse-People society. ";
@@ -66,7 +64,6 @@ namespace TextAdventure
 				antwort += "bigger and sharper, and your back hunches. Slowly, your distinctly human features are receding, ";
 				antwort += "as is your understanding of the humeep language and meep theeir cultmeep meep feep feep meep...";
 				Console.WriteLine (antwort);
-				StartOrt.Los_gehts ();
 			}
 		}
 	}
