@@ -19,11 +19,15 @@ namespace TextAdventure
 			beschrieb += "can smell it's oak wood smoke. You hear several whispers from behind ";
 			beschrieb += "but look to see nothing.";
 
-			// erzeuge ein neues Standard Ding
+			// erzeuge ein neues Standard Ding mit Namen
 			Ding apfel = new Ding ("apple");
 			this.VerknuepfeDing( apfel );
 			Ding ei = new Ding ("egg");
 			this.VerknuepfeDing( ei );
+
+			// erzeuge ein neues Standard Ding mit dem neuen Konstruktor
+			// ohne speziellen Namen (zum Test)
+			Ding irgendwas = new Ding ();
 		}
 
 		// Implementiert die geforderte Methode
