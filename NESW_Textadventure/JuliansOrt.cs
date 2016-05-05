@@ -73,7 +73,7 @@ namespace TextAdventure
 		// Aufnehmbare Objekte
 		
 		// Fakel: 500 Lumen, 2 Minuten Leuchtdauer
-		CatacombTorch torch = new CatacombTorch("torch", 500, 120);
+		CatacombTorch torchObject = new CatacombTorch("torch", 500, 120);
 		
 		// Moegliche commands
 		public override bool IstCustomCommand(string in_kommando)
