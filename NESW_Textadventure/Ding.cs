@@ -25,7 +25,14 @@ namespace TextAdventure
 			name = in_name;
 		}
 
+<<<<<<< HEAD
 		/*public Ding(){
 		}*/
+=======
+		public void BehandleKommando( string in_kommando ) {
+			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
+		}
+
+>>>>>>> master
 	}
 }

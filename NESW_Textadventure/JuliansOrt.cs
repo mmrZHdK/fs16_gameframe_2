@@ -35,7 +35,12 @@ namespace TextAdventure
 		private bool torch = false;
 		private bool lostTorch = false;
 		private bool monster = false;
-		
+
+		// Aufnehmbare Objekte
+
+		// Fakel: 500 Lumen, 2 Minuten Leuchtdauer
+		CatacombTorch torchObject = new CatacombTorch("torch", 500, 120);
+
 		public JuliansOrt ()
 		{
 			name = "dammned catacombs";
@@ -44,7 +49,7 @@ namespace TextAdventure
 			beschrieb += "The smell of death and fermented organs rising up to tickle your senses. ";
 			beschrieb += "You recognize the flame of a torch about five meters to your left. In its shine you can make out the shape of a wooden door. ";
 			beschrieb += "There is the noise of rushing water further to the right. The hall is shrouded in darkness and you can feel the oppressive atmosphere. ";
-			beschrieb += "Something flits around your feet.";
+			beschrieb += "Something flits around your feet. ";
 			
 			// [catacombs]
 			// l, left, door, torch:							Pool of blood disappears under the door
@@ -69,11 +74,6 @@ namespace TextAdventure
 			// (follow, go, move) tunnel, light, exit:			Player enters Moritz' fancy chest room
 			// b, back, return:									Player cannot find back to catacombs
 		}
-		
-		// Aufnehmbare Objekte
-		
-		// Fakel: 500 Lumen, 2 Minuten Leuchtdauer
-		CatacombTorch torchObject = new CatacombTorch("torch", 500, 120);
 		
 		// Moegliche commands
 		public override bool IstCustomCommand(string in_kommando)
