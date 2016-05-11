@@ -26,7 +26,15 @@ namespace TextAdventure
 		}
 
 		public virtual bool HatKommando( string in_kommando ) {
-			return false;
+			return ( in_kommando == "examine" );
+		}
+
+		public virtual void BehandleDingKommando( string in_kommando ) {
+			Console.WriteLine ("You " + in_kommando + " the " + name);
+
+			if (in_kommando == "examine") {
+				Console.WriteLine (beschrieb);
+			}
 		}
 	}
 }
