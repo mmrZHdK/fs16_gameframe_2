@@ -169,18 +169,6 @@ namespace TextAdventure
 
 			// Teile das Kommando auf
 			// Teile an der Leertaste auf
-
-			// Resultat zwei einzelne Strings (können auch mehr sein)
-			// Nimm den zweiten Teil (... dritten, vierten)
-
-			// Schlaufe durchs Dictionary dinge durch
-			// Namen aus dem Eintrag holen (Key)
-			// Vergleiche: Zweiter Teil in_kommando
-			// mit Namen (Key von Eintrag)
-			// wenns passt
-			// Ding aus Eintrag holen ( Value)
-
-
 			String[] kommandoTeile = in_kommando.Split( ' ' );
 
 			if (kommandoTeile.Count() < 2) {
@@ -219,7 +207,6 @@ namespace TextAdventure
 				Console.WriteLine ("-- kein Ding im Dictionary");
 				return false;
 			}
-
 		}
 
 		public void BehandleDingKommando( string in_kommando ) {
