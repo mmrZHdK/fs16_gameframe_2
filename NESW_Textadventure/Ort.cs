@@ -169,7 +169,7 @@ namespace TextAdventure
 
 			// Teile das Kommando auf
 			// Teile an der Leertaste auf
-<<<<<<< HEAD
+
 			// Resultat zwei einzelne Strings (können auch mehr sein)
 			// Nimm den zweiten Teil (... dritten, vierten)
 
@@ -180,22 +180,7 @@ namespace TextAdventure
 			// wenns passt
 			// Ding aus Eintrag holen ( Value)
 
-			// String in mehrere Strings aufteilen mit 'Split()'
-			// das Leerzeichen bei (' ') gibt den Ort der Trennung an
-			String[] substrings = in_kommando.Split(' ');
 
-			foreach (var substring in substrings) {
-				if (dinge.ContainsKey (substring)) {
-
-					// BehandleDingKommando
-					return true;
-				}
-			}
-
-			// falls nichts gefunden:
-
-			return false;
-=======
 			String[] kommandoTeile = in_kommando.Split( ' ' );
 
 			if (kommandoTeile.Count() < 2) {
@@ -234,7 +219,7 @@ namespace TextAdventure
 				Console.WriteLine ("-- kein Ding im Dictionary");
 				return false;
 			}
->>>>>>> master
+
 		}
 
 		public void BehandleDingKommando( string in_kommando ) {
