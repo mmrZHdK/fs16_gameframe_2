@@ -22,7 +22,7 @@ namespace TextAdventure
 			//Ding apfel = new Ding ("apple");
 			//this.VerknuepfeDing (apfel);
 
-			Ding messer = new Ding (/*"knife"*/);
+			Ding messer = new Ding ("knife");
 			this.VerknuepfeDing (messer);
 
 

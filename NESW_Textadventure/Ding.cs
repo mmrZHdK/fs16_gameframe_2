@@ -25,9 +25,14 @@ namespace TextAdventure
 			name = in_name;
 		}
 
+<<<<<<< HEAD
 		public void BehandleKommando( string in_kommando ) {
 			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
 		}
 
+=======
+		public Ding(){
+		}
+>>>>>>> parent of 66cb285... Merge
 	}
 }

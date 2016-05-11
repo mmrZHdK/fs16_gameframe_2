@@ -5,7 +5,7 @@ namespace DasTextAdventure
 {
 	public class TobiasDing : Ding
 	{
-		//name = "plummet";
+		name = "plummet";
 
 		//Konstruktor:
 		//public TobiasDing ()
