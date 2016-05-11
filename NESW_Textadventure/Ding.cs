@@ -24,5 +24,6 @@ namespace TextAdventure
 		{
 			name = in_name;
 		}
+
 	}
 }
