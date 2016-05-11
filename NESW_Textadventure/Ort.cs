@@ -228,6 +228,7 @@ namespace TextAdventure
 				String dingName = kommandoTeile [1];
 				Console.WriteLine ("-- dingName:" + dingName);
 
+				bool identifiziert = false;
 				// Schlaufe durchs Dictionary dinge durch
 				foreach (var dingEintrag in dinge) {
 					// lokalen Variable ding enthält erstes Ding
@@ -243,11 +244,14 @@ namespace TextAdventure
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
 						ding.BehandleKommando (kommandoTeil);
+						identifiziert = true;
 					}
 				}
 
-				// Schlaufe durch, keine Übereinstimmung gefunden
-				Console.WriteLine ("-- kein Ding im Dictionary");
+				if (identifiziert == false) {
+					// Schlaufe durch, keine Übereinstimmung gefunden
+					Console.WriteLine ("-- kein Ding im Dictionary");
+				}
 			}
 		}
 	}

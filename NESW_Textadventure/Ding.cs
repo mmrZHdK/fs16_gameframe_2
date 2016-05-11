@@ -27,6 +27,37 @@ namespace TextAdventure
 
 		public void BehandleKommando( string in_kommando ) {
 			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
+
+			// allgemeine Ding Kommandos behandeln
+			// Variante mit IF ELSE IF ELSE
+			if (in_kommando == "examine") {
+				Console.WriteLine (beschrieb);
+
+			} else if (in_kommando == "destroy") {
+				this.WechseleStatus ( "zerstoert" );
+				Console.WriteLine ("You destroyed " + name);
+				Console.WriteLine ("Don't you feel sorry for that?...");
+			}
+
+			// Variante mit SWITCH
+			switch (in_kommando) {
+
+			case "examine":
+				Console.WriteLine (beschrieb);
+				break;
+
+			case "destroy":
+				this.WechseleStatus ("zerstoert");
+				Console.WriteLine ("You destroyed " + name);
+				Console.WriteLine ("Don't you feel sorry for that?...");
+				break;
+			}
+		}
+
+		public void WechseleStatus( string in_status ) {
+			if (in_status == "zerstoert") {
+				name = "destroyed " + name;
+			}
 		}
 
 	}
