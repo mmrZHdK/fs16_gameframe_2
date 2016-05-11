@@ -22,12 +22,8 @@ namespace TextAdventure
 			// erzeuge ein neues Standard Ding mit Namen
 			Ding apfel = new Ding ("apple");
 			this.VerknuepfeDing( apfel );
-			Ding ei = new Ding ("egg");
+			Ding ei = new Ding ("golden egg");
 			this.VerknuepfeDing( ei );
-
-			// erzeuge ein neues Standard Ding mit dem neuen Konstruktor
-			// ohne speziellen Namen (zum Test)
-			Ding irgendwas = new Ding ();
 		}
 
 		// Implementiert die geforderte Methode
@@ -46,4 +42,3 @@ namespace TextAdventure
 		}
 	}
 }
-
