@@ -6,7 +6,7 @@ namespace TextAdventure
 	public class MyriamsDing: Ding
 	{
 		
-		public MyriamsDing () 
+		public MyriamsDing ()
 		{
 			name = "apple";
 			beschrieb = "red perfect";

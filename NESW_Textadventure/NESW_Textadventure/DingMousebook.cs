@@ -10,7 +10,7 @@ namespace TextAdventure
 			name = "mousebook";
 		}
 		public string read(){
-
+			return "";
 		}
 	}
 }

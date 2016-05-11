@@ -175,9 +175,24 @@ namespace TextAdventure
 			// Schlaufe durchs Dictionary dinge durch
 			// Namen aus dem Eintrag holen (Key)
 			// Vergleiche: Zweiter Teil in_kommando
-			//  mit Namen (Key von Eintrag)
+			// mit Namen (Key von Eintrag)
 			// wenns passt
 			// Ding aus Eintrag holen ( Value)
+
+			// String in mehrere Strings aufteilen mit 'Split()'
+			// das Leerzeichen bei (' ') gibt den Ort der Trennung an
+			String[] substrings = in_kommando.Split(' ');
+
+			foreach (var substring in substrings) {
+				if (dinge.ContainsKey (substring)) {
+
+					// BehandleDingKommando
+					return true;
+				}
+			}
+
+			// falls nichts gefunden:
+
 			return false;
 		}
 
