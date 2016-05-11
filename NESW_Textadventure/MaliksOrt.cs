@@ -53,6 +53,8 @@ namespace TextAdventure
 				string antwort = "You are runing in circles until you puke.";
 
 				Console.WriteLine (antwort);
+
+				// schöner Kommentar
 			}
 		}
 	}
