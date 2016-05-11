@@ -27,7 +27,9 @@ namespace TextAdventure
 
 
 		Ding book = new Ding ("book");
+		this.VerknuepfeDing( "book" );
 		Ding gab = new Ding ("crack in the wall");
+		this.VerknuepfeDing( "crack in the wall" );
 
 
 		public override void BehandleCustomCommand(string in_kommando){
