@@ -26,7 +26,7 @@ namespace TextAdventure
 			this.VerknuepfeDing (messer);
 
 
-			MyriamsDing apfel = new MyriamsDing ("apple");
+			MyriamsDing apfel = new MyriamsDing (/*"apple"*/);
 			this.VerknuepfeDing (apfel);
 
 
