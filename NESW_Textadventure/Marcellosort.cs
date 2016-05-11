@@ -8,12 +8,17 @@ namespace TextAdventure
 		public MarcellosOrt ()
 		{
 			name = "hidden book chamber";
+			bezug = "in";
 			beschrieb = "You enter a small chamber that is filled up with books to the top. ";
 			beschrieb += "The air is fusty and the dust trickels down as you tap a book.";
 			beschrieb += "As you turn your head to the left, you see a small crack in the wall,";
 			beschrieb += "but wide enough for a thin body to slip through.";
 			beschrieb += "The only source of light originates from the spine of a book. Self-illuminating, it seems...";
 			beschrieb += "It's quite far up the bookshelf, you can't reach it.";
+
+			Ding book = new Ding ("book");
+			this.VerknuepfeDing( book);
+
 		}
 
 		//Befehle, die nur in meinem Raum möglich sind
@@ -26,10 +31,7 @@ namespace TextAdventure
 		}
 
 
-		Ding book = new Ding ("book");
-		this.VerknuepfeDing( "book" );
-		Ding gab = new Ding ("crack in the wall");
-		this.VerknuepfeDing( "crack in the wall" );
+
 
 
 		public override void BehandleCustomCommand(string in_kommando){
@@ -42,7 +44,8 @@ namespace TextAdventure
 			}  else if (in_kommando == "open book") {
 				string antwort = "you're holding the glowing book in your hands. As you open it, the glow increases infinitly. It's so bright that you have to close your eyes. The ground begins to shake...";
 				Console.WriteLine (antwort);
-
+				Ort neuer_ort = new ArnosOrt();
+				neuer_ort.LosGehts();
 			} else if (in_kommando == "squeeze") {
 				string antwort = "You breathe out and move your left arm into the small crack. You managed to pull yourself trough the crack. You are reliefed as you left the crack on the other side.";
 				Console.WriteLine (antwort);
