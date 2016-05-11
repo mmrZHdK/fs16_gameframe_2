@@ -202,7 +202,7 @@ namespace TextAdventure
 
 						if ( ding.HatKommando( kommando ) ) {
 							istDingKommando = true;
-							Console.WriteLine( ding.name  + " kennt " + kommando );
+							Console.WriteLine( "-- " + ding.name  + " kennt " + kommando );
 						}
 					}
 				}
@@ -211,6 +211,27 @@ namespace TextAdventure
 		}
 
 		public void BehandleDingKommando( string in_kommando ) {
+			
+			List<string> dingteile = in_kommando.Split (' ').ToList();
+			dingteile.RemoveAt (0);
+
+			List<string> kommandoteile = in_kommando.Split (' ').ToList ();
+			kommandoteile.RemoveAt (kommandoteile.Count - 1);
+			string kommando = String.Join( " ", kommandoteile);
+
+			foreach (var dingteil in dingteile) {
+				foreach( var dingEintrag in dinge) {
+					Ding ding = dingEintrag.Value;
+
+					if ( ding.name.Split( ' ' ).ToList().Contains( dingteil ) ) {
+						// Ding identifiziert
+						if ( ding.HatKommando( kommando ) ) {
+							ding.BehandleDingKommando( kommando );
+						}
+					}
+				}
+			}
+
 		}
 	}
 }
