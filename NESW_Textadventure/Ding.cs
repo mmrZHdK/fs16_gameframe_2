@@ -30,14 +30,14 @@ namespace TextAdventure
 
 			// allgemeine Ding Kommandos behandeln
 			// Variante mit IF ELSE IF ELSE
-			if (in_kommando == "examine") {
-				Console.WriteLine (beschrieb);
-
-			} else if (in_kommando == "destroy") {
-				this.WechseleStatus ( "zerstoert" );
-				Console.WriteLine ("You destroyed " + name);
-				Console.WriteLine ("Don't you feel sorry for that?...");
-			}
+//			if (in_kommando == "examine") {
+//				Console.WriteLine (beschrieb);
+//
+//			} else if (in_kommando == "destroy") {
+//				this.WechseleStatus ( "zerstoert" );
+//				Console.WriteLine ("You destroyed " + name);
+//				Console.WriteLine ("Don't you feel sorry for that?...");
+//			}
 
 			// Variante mit SWITCH
 			switch (in_kommando) {
@@ -51,14 +51,22 @@ namespace TextAdventure
 				Console.WriteLine ("You destroyed " + name);
 				Console.WriteLine ("Don't you feel sorry for that?...");
 				break;
+
+			default:
+				this.BehandleSpeziellesKommando (in_kommando);
+				break;
 			}
 		}
 
-		public void WechseleStatus( string in_status ) {
+		public virtual void WechseleStatus( string in_status ) {
 			if (in_status == "zerstoert") {
 				name = "destroyed " + name;
 			}
 		}
 
+		public virtual void BehandleSpeziellesKommando( string in_kommando ) {
+			// Behandle spezielle Kommandos der Subklassen
+		}
+	
 	}
 }
