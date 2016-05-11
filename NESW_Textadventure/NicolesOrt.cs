@@ -21,11 +21,19 @@ namespace TextAdventure
 			//Dinge im Raum
 			Ding pendulum = new Ding ("long case clock with a pendulum"); 
 			this.VerknuepfeDing (pendulum);
+<<<<<<< HEAD
 			Ding table = new Ding ("laid table with chairs"); 
 			this.VerknuepfeDing (table);
 			Ding vorhang = new Ding ("claret draperies"); 
 			this.VerknuepfeDing (vorhang);
 			Ding gabel = new Ding ("fork");
+=======
+			Ding table = new Ding ("laid table"); 
+			this.VerknuepfeDing (table);
+			Ding scherbe = new Ding ("shard");
+			this.VerknuepfeDing (scherbe);
+			Ding gabel = new Ding ("fork"); 
+>>>>>>> master
 			this.VerknuepfeDing (gabel);
 		}
 
@@ -34,7 +42,11 @@ namespace TextAdventure
 
 		public override bool IstCustomCommand(string in_kommando){
 
+<<<<<<< HEAD
 			return ((in_kommando == "open window") || (in_kommando == "eat") || (in_kommando == "move pendulum") || (in_kommando == "sit down") ||
+=======
+			return ((in_kommando == "open window") || (in_kommando == "eat") || (in_kommando == "swing pendulum") || (in_kommando == "sit down") ||
+>>>>>>> master
 					(in_kommando == "move draperies") ||(in_kommando == "take shard") || (in_kommando == "take fork"));
 		}
 
@@ -43,6 +55,12 @@ namespace TextAdventure
 		public override void BehandleCustomCommand(string in_kommando){
 			if (in_kommando == "open window") {
 				string antwort = "There is no way to open the windows. ";
+<<<<<<< HEAD
+=======
+				Console.WriteLine (antwort);
+			} else if (in_kommando == "move draperies") {
+				string antwort = "Behind the draperies you find a shattered pane. Shards laying around. ";
+>>>>>>> master
 				Console.WriteLine (antwort);
 			} else if (in_kommando == "move draperies") {
 				string antwort = "Behind the draperies you find a shattered pane. Shards laying around. ";
