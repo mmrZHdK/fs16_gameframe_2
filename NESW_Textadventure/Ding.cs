@@ -9,7 +9,6 @@ namespace TextAdventure
 		// Der Name eines Dings
 		public string name = "untitled item";
 
-		// Test für Branch
 		public Ding ( string in_name )
 		{
 			name = in_name;
