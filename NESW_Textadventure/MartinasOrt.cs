@@ -6,20 +6,27 @@ namespace TextAdventure
 	    class MartinasOrt : Ort
 	    {
 		        public MartinasOrt ()
-		        {
-			            name = "crooked shed";
+		{
+			name = "crooked shed";
 
-			            beschrieb += "A dim light falls through the small window to your right.";
-			            beschrieb += "\nUnder the window, you can see different garden tools, covered in cobwebs.";
-			            beschrieb += "\nOn your left, there are a few wooden boards, leaned against the wall";
-						beschrieb += "\nA piece of rope lies on the dusty floor\n";
-			        }
+			beschrieb += "A dim light falls through the small window to your right.";
+			beschrieb += "\nUnder the window, you can see different garden tools, covered in cobwebs.";
+			beschrieb += "\nOn your left, there are a few wooden boards, leaned against the wall";
+			beschrieb += "\nA piece of rope lies on the dusty floor\n";
+			        
+		
 
+			// Dinge in meinem Raum
+			Ding Seil = new Ding ("rope");
+			this.VerknuepfeDing (Seil);
+
+			//Spezielles Ding
+			MartinasDing Brecheisen = new MartinasDing(name);
+			this.VerknuepfeDing (Brecheisen);
+
+		}
+			
 		bool trapDoorOpen = false;
-
-		//Dinge in meinem Raum
-		Ding crowbar = new Ding ("crowbar"); 
-		Ding rope = new Ding ("rope");
 
 		//Befehle, die nur in meinem Raum möglich sind
 		public override bool IstCustomCommand( string in_kommando )
