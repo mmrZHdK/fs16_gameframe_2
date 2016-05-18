@@ -14,18 +14,23 @@ namespace TextAdventure
 			beschrieb += "In the south is the door to the kitchen. ";
 			beschrieb += "All other walls are covered with shelves which are packed with canned food. ";
 			beschrieb += "You see a rat sneaking around the shelves. ";
+
+
+			//Dinge in meinem Raum
+			Ding ravioli = new Ding ("canned ravioli");
+			this.VerknuepfeDing(ravioli);
+			Ding gab = new Ding ("crack in the wall");
+			this.VerknuepfeDing(gab);
+
+			//Spezial Dinge
+			SelinaDing ratte = new SelinaDing(name);
+			this.VerknuepfeDing (ratte);
 		}
-
-		//Dinge in meinem Raum
-		Ding rat = new Ding ("rat");
-		Ding ravioli = new Ding ("Canned Ravioli");
-		Ding gab = new Ding ("crack in the wall");
-
 
 		//Befehle, die nur in meinem Raum möglich sind
 		public override bool IstCustomCommand(string in_kommando){
 
-			return ((in_kommando == "look") || (in_kommando == "take food") || (in_kommando == "squeeze")) ;
+			return ((in_kommando == "look") || (in_kommando == "take food") || (in_kommando == "squeeze thorugh") || (in_kommando == "catch rat") || (in_kommando == "cook ravioli")) ;
 
 		}
 
@@ -33,14 +38,24 @@ namespace TextAdventure
 			if (in_kommando == "look") {
 				string antwort = "You take a closer look at the walls and find a crack in the east wall! It's big enough for a human to squeeze through. ";
 				Console.WriteLine (antwort);
+
 			} else if (in_kommando == "take food") {
-				string antwort = "You take a can with you. It's tagged 'ravioli'. ";
+				string antwort = "You take a can. It's tagged 'ravioli'. ";
 				Console.WriteLine (antwort);
-			} else if (in_kommando == "squeeze") {
+
+			} else if (in_kommando == "cook ravioli") {
+				string antwort = "It's a good idea to warm them up but you don't have any cooking facilities in here. ";
+				Console.WriteLine (antwort);
+
+			} else if (in_kommando == "catch rat") {
+				string antwort = "The rat is to swift. You can't catch it. ";
+				Console.WriteLine (antwort);
+
+			} else if (in_kommando == "squeeze through") {
 				string antwort = "You managed to squeeze through the crack. ";
 				Console.WriteLine (antwort);
 				// Marcels Raum aufrufen
-				//				MarcellosOrt.LosGehts ();
+				// MarcellosOrt.LosGehts ();
 
 
 			}

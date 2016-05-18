@@ -18,6 +18,7 @@ namespace TextAdventure
 			// oder nach osten um in einem Baumhaus (vom Sebi) zu kommen
 			// der Benutzer kann hier Wasser trinken, Äpfel essen oder sich ausruhen
 
+<<<<<<< HEAD
 			Ding apfel = new Ding ("appleseed");
 			this.VerknuepfeDing( apfel );
 
@@ -25,12 +26,34 @@ namespace TextAdventure
 			MaliksDing apfelsamen = new MaliksDing ;
 
 		
+=======
+
+
+			//Meine Dinge
+
+			Ding apple = new Ding ("apple");
+			this.VerknuepfeDing (apple);
+
+			Ding water = new Ding ("water");
+			this.VerknuepfeDing (water);
+
+
+>>>>>>> master
 
 		}
+
+
+		//public override Geschichten
+
 		public override bool IstCustomCommand( string in_kommando )
 		{
-			return (in_kommando == "drink water" || in_kommando == "eat apple" || in_kommando == "rest" || in_kommando == "dance"|| in_kommando =="run");
+			return (in_kommando == "drink water" || in_kommando == "eat apple" || 
+					in_kommando == "rest" || in_kommando == "dance"|| in_kommando =="run");
 		}
+
+
+
+
 		public override void BehandleCustomCommand( string in_kommando )
 		{
 			if (in_kommando == "drink water") {
