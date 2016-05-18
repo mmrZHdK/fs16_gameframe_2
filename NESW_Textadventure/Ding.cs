@@ -25,6 +25,52 @@ namespace TextAdventure
 			name = in_name;
 		}
 
+<<<<<<< HEAD
 
+=======
+		public void BehandleKommando( string in_kommando ) {
+			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
+
+			// allgemeine Ding Kommandos behandeln
+			// Variante mit IF ELSE IF ELSE
+//			if (in_kommando == "examine") {
+//				Console.WriteLine (beschrieb);
+//
+//			} else if (in_kommando == "destroy") {
+//				this.WechseleStatus ( "zerstoert" );
+//				Console.WriteLine ("You destroyed " + name);
+//				Console.WriteLine ("Don't you feel sorry for that?...");
+//			}
+
+			// Variante mit SWITCH
+			switch (in_kommando) {
+
+			case "examine":
+				Console.WriteLine (beschrieb);
+				break;
+
+			case "destroy":
+				this.WechseleStatus ("zerstoert");
+				Console.WriteLine ("You destroyed " + name);
+				Console.WriteLine ("Don't you feel sorry for that?...");
+				break;
+
+			default:
+				this.BehandleSpeziellesKommando (in_kommando);
+				break;
+			}
+		}
+
+		public virtual void WechseleStatus( string in_status ) {
+			if (in_status == "zerstoert") {
+				name = "destroyed " + name;
+			}
+		}
+
+		public virtual void BehandleSpeziellesKommando( string in_kommando ) {
+			// Behandle spezielle Kommandos der Subklassen
+		}
+	
+>>>>>>> 3288f73728295f8cc4ab1875003dfb1c67d259ee
 	}
 }

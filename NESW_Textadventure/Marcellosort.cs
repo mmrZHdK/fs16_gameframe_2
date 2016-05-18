@@ -31,7 +31,10 @@ namespace TextAdventure
 		}
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3288f73728295f8cc4ab1875003dfb1c67d259ee
 
 
 		public override void BehandleCustomCommand(string in_kommando){
