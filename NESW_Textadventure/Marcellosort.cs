@@ -19,7 +19,7 @@ namespace TextAdventure
 			beschrieb += "The only source of light originates from the spine of a book. Self-illuminating, it seems...";
 			beschrieb += "It's quite far up the bookshelf, you can't reach it.";
 
-			Ding magicbook = new Ding ("Magic Book");
+			Ding magicbook = new Ding ("MagicBook");
 			this.VerknuepfeDing( magicbook);
 
 		}
@@ -46,7 +46,7 @@ namespace TextAdventure
 
 				Console.WriteLine (antwort);
 			}  else if (in_kommando == "open book") {
-				if(IstDingKommando("Magic Book")){
+				if(IstDingKommando("open MagicBook")){
 				string antwort = "you're holding the glowing book in your hands. As you open it, the glow increases infinitly. It's so bright that you have to close your eyes. The ground begins to shake...";
 				Console.WriteLine (antwort);
 				Ort neuer_ort = new ArnosOrt();
