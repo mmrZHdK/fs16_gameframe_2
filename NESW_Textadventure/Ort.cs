@@ -152,8 +152,7 @@ namespace TextAdventure
 				}
 			}
 		}
-
-
+			
 		// Abstrakte Formulierung einer Methode, die
 		// Custom Commands identifiziert
 		// Wird hier nicht implementiert, sondern dient
@@ -173,6 +172,12 @@ namespace TextAdventure
 			// Speichere das Ding unter seinem Namen im
 			// Dictionary für dinge
 			dinge[ in_ding.name ] = in_ding;
+		}
+
+		public Ding EntferneDing( Ding in_ding ) {
+			Ding entfernt = dinge [in_ding.name];
+			dinge.Remove (in_ding.name);
+			return entfernt;
 		}
 
 		public bool IstDingKommando( string in_kommando ) {
@@ -231,30 +236,44 @@ namespace TextAdventure
 			} else {
 				// Resultat zwei einzelne Strings (können auch mehr sein)
 				String kommandoTeil = kommandoTeile [0];
-				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
+				Console.WriteLine ( "-- kommandoTeil:" + kommandoTeil );
 
 				// Nimm den zweiten Teil (... dritten, vierten)
 
 				String dingName = kommandoTeile [1];
-				Console.WriteLine ("-- dingName:" + dingName);
+				Console.WriteLine ( "-- dingName:" + dingName );
 
 				bool identifiziert = false;
 				// Schlaufe durchs Dictionary dinge durch
-				foreach (var dingEintrag in dinge) {
+				foreach ( var dingEintrag in dinge ) {
 					// lokalen Variable ding enthält erstes Ding
 
 					// Namen aus dem Eintrag holen (Key)
 					String name = dingEintrag.Key;
 
 					// Vergleiche: Zweiter Teil in_kommando
-					if (name == dingName) {
+					if ( name == dingName ) {
 						// Juchu! Es gibt ein Ding im Dictionary
 						// mit dem gleichen Namen, der im Kommando
 						// benannt wurde
+						identifiziert = true;
+
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
-						ding.BehandleKommando (kommandoTeil);
-						identifiziert = true;
+
+						// prüfe die allgemeinen Ding Kommandos
+						if (kommandoTeil == "take") {
+							this.EntferneDing (ding);
+							spieler.ZuInventarDazu (ding);
+
+						} else if (kommandoTeil == "drop") {
+							Ding gedropt = spieler.AusInventarEntfernen (name);
+							this.VerknuepfeDing (gedropt);
+
+						} else {
+							// Kommando an Ding weitergeben
+							ding.BehandleKommando (kommandoTeil);
+						}
 					}
 				}
 
@@ -264,5 +283,6 @@ namespace TextAdventure
 				}
 			}
 		}
+
 	}
 }
