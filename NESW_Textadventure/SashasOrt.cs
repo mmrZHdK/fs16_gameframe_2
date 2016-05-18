@@ -18,8 +18,9 @@ namespace TextAdventure
 			beschrieb += "The stairs to the library are on the north side of the dungeon";//north to library
 			beschrieb += "The light comes from the hole in the wall on the west side"; // west to Julians Ort
 
-			Ding hammer = new Ding ("hammer");
-			this.VerknuepfeDing(hammer);
+			//HammerClass hammer = new HammerClass();
+			//this.VerknuepfeDing(hammer);
+
 
 		}
 
@@ -42,7 +43,7 @@ namespace TextAdventure
 				Console.WriteLine (antwort);
 				//	rooms["martinas_ort"].LosGehts ();
 			}
-			else if (in_kommando == "light torch") {
+			else if (in_kommando == "light torch") {    /// test kommentare
 				string antwort = "No, you have nothing to light the torch with.";
 
 				Console.WriteLine (antwort);

@@ -58,7 +58,9 @@ namespace TextAdventure
 			domis_ort.VerknuepfeOrt( "?", maliks_ort );
 			// TODO
 
-			julians_ort.VerknuepfeOrt( "?", moritz_ort );
+			julians_ort.VerknuepfeOrt( "n", moritz_ort );
+			julians_ort.VerknuepfeOrt( "w", sashas_ort );
+			//julians_ort.VerknuepfeOrt( "up", johns_ort );
 			// TODO
 
 			maliks_ort.VerknuepfeOrt( "w", sebis_ort );
@@ -80,6 +82,7 @@ namespace TextAdventure
 			// TODO
 
 			moritz_ort.VerknuepfeOrt( "n", martinas_ort );
+			moritz_ort.VerknuepfeOrt( "s", julians_ort );
 			// TODO
 
 			myriams_ort.VerknuepfeOrt( "e", nicoles_ort );
@@ -104,6 +107,9 @@ namespace TextAdventure
 			tobias_ort.VerknuepfeOrt( "s", maliks_ort );
 			// TODO
 
+			// Mache eine neue Spieler Instanz
+			Spieler spieler = new Spieler();
+			start_ort.spieler = spieler;
 
 			// -- Start Ort aktivieren
 			// Der Ort, an dem das Adventure beginnt,

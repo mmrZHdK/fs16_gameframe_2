@@ -27,6 +27,8 @@ namespace TextAdventure
 		// sind
 		Dictionary<string, Ding> dinge =
 			new Dictionary<string, Ding>();
+
+		public Spieler spieler;
 		
 
 		// -- Konstruktor des allgemeinen Ortes ohne Parameter
@@ -70,6 +72,10 @@ namespace TextAdventure
 					Ort neuer_ort = verknuepfungen [kommando];
 					// Ort neuer_ort = verknuepfungen.VGet( kommando );
 
+					// Übergabe der Spieler Instanz an den nächsten Ort
+					neuer_ort.spieler = this.spieler;
+					this.spieler = null;
+
 					Console.WriteLine();  // Leerzeile ausgeben
 					neuer_ort.LosGehts ();	// neuen Ort ausführen
 
@@ -84,6 +90,10 @@ namespace TextAdventure
 				} else if ( kommando == "things" ) {
 					// Es ist ein allgemeines Kommando
 					DingListeAusgeben();
+				
+				} else if ( kommando == "inventory" ) {
+					// Gib Liste der Dinge aus, die der Spieler in der Tasche
+					spieler.InventarAusgeben();
 
 				} else {
 					Console.WriteLine ("Hmmm... that seems to be impossible around here.");
@@ -166,10 +176,93 @@ namespace TextAdventure
 		}
 
 		public bool IstDingKommando( string in_kommando ) {
-			return false;
+
+			// Teile das Kommando auf
+			// Teile an der Leertaste auf
+			String[] kommandoTeile = in_kommando.Split( ' ' );
+
+			if (kommandoTeile.Count() < 2) {
+				// keine Zweiwort Satz, also auch kein Ding Kommando
+				Console.WriteLine ("-- sorry, kein zweites Wort da");
+				return false;
+
+			} else {
+				// Resultat zwei einzelne Strings (können auch mehr sein)
+				String kommandoTeil = kommandoTeile [0];
+				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
+
+				// Nimm den zweiten Teil (... dritten, vierten)
+
+				String dingName = kommandoTeile [1];
+				Console.WriteLine ("-- dingName:" + dingName);
+
+				// Schlaufe durchs Dictionary dinge durch
+				foreach (var dingEintrag in dinge) {
+					// lokalen Variable ding enthält erstes Ding
+
+					// Namen aus dem Eintrag holen (Key)
+					String name = dingEintrag.Key;
+
+					// Vergleiche: Zweiter Teil in_kommando
+					if (name == dingName) {
+						// Juchu! Es gibt ein Ding im Dictionary
+						// mit dem gleichen Namen, der im Kommando
+						// benannt wurde
+						Console.WriteLine ("-- Juchu, " + name + " ist hier bekannt");
+						return true;
+					}
+				}
+
+				// Schlaufe durch, keine Übereinstimmung gefunden
+				Console.WriteLine ("-- kein Ding im Dictionary");
+				return false;
+			}
 		}
 
 		public void BehandleDingKommando( string in_kommando ) {
+			// Teile das Kommando auf
+			// Teile an der Leertaste auf
+			String[] kommandoTeile = in_kommando.Split( ' ' );
+
+			if (kommandoTeile.Count () < 2) {
+				// keine Zweiwort Satz, also auch kein Ding Kommando
+				Console.WriteLine ("-- sorry, kein zweites Wort da");
+
+			} else {
+				// Resultat zwei einzelne Strings (können auch mehr sein)
+				String kommandoTeil = kommandoTeile [0];
+				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
+
+				// Nimm den zweiten Teil (... dritten, vierten)
+
+				String dingName = kommandoTeile [1];
+				Console.WriteLine ("-- dingName:" + dingName);
+
+				bool identifiziert = false;
+				// Schlaufe durchs Dictionary dinge durch
+				foreach (var dingEintrag in dinge) {
+					// lokalen Variable ding enthält erstes Ding
+
+					// Namen aus dem Eintrag holen (Key)
+					String name = dingEintrag.Key;
+
+					// Vergleiche: Zweiter Teil in_kommando
+					if (name == dingName) {
+						// Juchu! Es gibt ein Ding im Dictionary
+						// mit dem gleichen Namen, der im Kommando
+						// benannt wurde
+						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
+						Ding ding = dingEintrag.Value;
+						ding.BehandleKommando (kommandoTeil);
+						identifiziert = true;
+					}
+				}
+
+				if (identifiziert == false) {
+					// Schlaufe durch, keine Übereinstimmung gefunden
+					Console.WriteLine ("-- kein Ding im Dictionary");
+				}
+			}
 		}
 	}
 }
