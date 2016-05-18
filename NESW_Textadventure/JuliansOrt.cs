@@ -2,17 +2,29 @@ using System;
 
 namespace TextAdventure
 {
+	// Callback delegate
+	public delegate void FackelCallback(string in_kommando);
+
 	// Klasse fuer Aufnehmbare Objekt
 	public sealed class CatacombTorch : Ding
 	{
 		private int helligkeit;			// In Lumen
 		private int leuchtdauer;		// In Sekunden
+		private FackelCallback Callback;
 		
 		// Constructor
-		public CatacombTorch(string name, int lumen, int leuchtdauer) : base(name)
+		public CatacombTorch(string name, int lumen, int leuchtdauer, FackelCallback FackelOperationen) : base(name)
 		{
 			this.helligkeit = lumen;
 			this.leuchtdauer = leuchtdauer;
+			this.beschrieb = "Right, you have seen a torch somewhere near the wooden door...";
+			this.Callback = FackelOperationen;
+		}
+
+		// Kommandos
+		public override void BehandleSpeziellesKommando(string in_kommando)
+		{
+			Callback(in_kommando);
 		}
 		
 		// Properties
@@ -30,16 +42,17 @@ namespace TextAdventure
 	// Ortsklasse
 	public class JuliansOrt : Ort
 	{
-		private string position = "catacombs";
+		private static string position = "catacombs";
 		private bool rat = true;
-		private bool torch = false;
-		private bool lostTorch = false;
-		private bool monster = false;
+		private static bool torch = false;
+		private static bool lostTorch = false;
+		private static bool monster = false;
 
 		// Aufnehmbare Objekte
 
 		// Fakel: 500 Lumen, 2 Minuten Leuchtdauer
-		CatacombTorch torchObject = new CatacombTorch("torch", 500, 120);
+		// 2 Callbacks -> Aufnehmen der Fackel, Verlieren der Fackel
+		private CatacombTorch torchObject = new CatacombTorch("torch", 500, 120, new FackelCallback(FackelOperationen));
 
 		public JuliansOrt ()
 		{
@@ -73,6 +86,88 @@ namespace TextAdventure
 			// [sewer]											Tunnel with light at the end
 			// (follow, go, move) tunnel, light, exit:			Player enters Moritz' fancy chest room
 			// b, back, return:									Player cannot find back to catacombs
+
+			// Mein Ding zum Ding-Dictionary hinzufuegen
+			VerknuepfeDing(torchObject);
+		}
+
+		// Spieler interagiert mit Fackel
+		private static void FackelOperationen(string in_kommando)
+		{
+			// Ausgabe
+			string antwort;
+
+			// Kommandos auswerten
+			switch(in_kommando)
+			{
+				// [door]
+				case "take":
+				case "grab":
+					if((position == "door") && !torch)
+					{
+						antwort = "Well... If anyone can find a good use for it... (You take the torch)";
+						Console.WriteLine(antwort);
+						torch = true;
+					}
+					else if((position == "water") && lostTorch)
+					{
+						antwort = "Are you kidding me? Forget the torch! It's unbelievable murky and f***ing dark. You can't see a damn thing. You're blind like a mole, like an unborn baby, ";
+						antwort += "like an eyeless purple glossed snake ... you understand?!? ... like a freaking astronaut soaked into a black hole during a lovely space walk. You can't find it! The torch is gone!";
+						Console.WriteLine(antwort);
+					}
+					break;
+
+				case "use":
+					if((position == "door") && torch && monster)
+					{
+						antwort = "You throw the torch directly into the monsters face! Certainly, it doesn't care and keeps tearing you into pieces!\n";
+						antwort += "YOU DIEDEDED!";
+						Console.WriteLine(antwort);
+						Console.ReadLine();
+						System.Environment.Exit(0);
+					}
+					else if((position == "water") && torch)
+					{
+						antwort = "Pffsch! The torch falls down on the wet floor an lost it's light. You really need to attend some psychomotility therapy... ";
+						antwort += "I mean, come on! A torch isn't that hard to hold properly, am I right? However, due to your high amount of stupidity, you're now standing in the dark again... ";
+						Console.WriteLine(antwort);
+						lostTorch = true;
+					}
+					break;
+
+				case "fight":
+				case "throw":
+					if((position == "door") && torch && monster)
+					{
+						antwort = "You throw the torch directly into the monsters face! Certainly, it doesn't care and keeps tearing you into pieces!\n";
+						antwort += "YOU DIEDEDED!";
+						Console.WriteLine(antwort);
+						Console.ReadLine();
+						System.Environment.Exit(0);
+					}
+					break;
+				
+				// [water]
+				case "light":
+					if((position == "water") && torch)
+					{
+						antwort = "Pffsch! The torch falls down on the wet floor an lost it's light. You really need to attend some psychomotility therapy... ";
+						antwort += "I mean, come on! A torch isn't that hard to hold properly, am I right? However, due to your high amount of stupidity, you're now standing in the dark again... ";
+						Console.WriteLine(antwort);
+						lostTorch = true;
+					}
+					break;
+
+				case "search":
+				case "find":
+					if((position == "water") && lostTorch)
+					{
+						antwort = "Are you kidding me? Forget the torch! It's unbelievable murky and f***ing dark. You can't see a damn thing. You're blind like a mole, like an unborn baby, ";
+						antwort += "like an eyeless purple glossed snake ... you understand?!? ... like a freaking astronaut soaked into a black hole during a lovely space walk. You can't find it! The torch is gone!";
+						Console.WriteLine(antwort);
+					}
+					break;
+			}
 		}
 		
 		// Moegliche commands
@@ -104,29 +199,8 @@ namespace TextAdventure
 					break;
 				
 				// [door]
-				case "take torch":
-				case "grab torch":
-					if((position == "door") && !torch)
-						vorhanden = true;
-					else if((position == "water") && lostTorch)
-						vorhanden = true;
-					break;
-				
 				case "open door":
 					if(position == "door")
-						vorhanden = true;
-					break;
-				
-				case "use torch":
-					if((position == "door") && torch && monster)
-						vorhanden = true;
-					else if((position == "water") && torch)
-						vorhanden = true;
-					break;
-
-				case "fight torch":
-				case "throw torch":
-					if((position == "door") && torch && monster)
 						vorhanden = true;
 					break;
 				
@@ -137,17 +211,6 @@ namespace TextAdventure
 					break;
 				
 				// [water]
-				case "light torch":
-					if((position == "water") && torch)
-						vorhanden = true;
-					break;
-				
-				case "search torch":
-				case "find torch":
-					if((position == "water") && lostTorch)
-						vorhanden = true;
-					break;
-				
 				case "follow water":
 				case "go water":
 				case "walk water":
@@ -267,22 +330,6 @@ namespace TextAdventure
 					break;
 				
 				// [door]
-				case "take torch":
-				case "grab torch":
-					if((position == "door") && !torch)
-					{
-						antwort = "Well... If anyone can find a good use for it... (You take the torch)";
-						Console.WriteLine(antwort);
-						torch = true;
-					}
-					else if((position == "water") && lostTorch)
-					{
-						antwort = "Are you kidding me? Forget the torch! It's unbelievable murky and f***ing dark. You can't see a damn thing. You're blind like a mole, like an unborn baby, ";
-						antwort += "like an eyeless purple glossed snake ... you understand?!? ... like a freaking astronaut soaked into a black hole during a lovely space walk. You can't find it! The torch is gone!";
-						Console.WriteLine(antwort);
-					}
-					break;
-				
 				case "open door":
 					if(position == "door")
 					{
@@ -290,36 +337,6 @@ namespace TextAdventure
 						antwort += "with a wide open mouth, heading in your direction.";
 						Console.WriteLine(antwort);
 						monster = true;
-					}
-					break;
-				
-				case "use torch":
-					if((position == "door") && torch && monster)
-					{
-						antwort = "You throw the torch directly into the monsters face! Certainly, it doesn't care and keeps tearing you into pieces!\n";
-						antwort += "YOU DIEDEDED!";
-						Console.WriteLine(antwort);
-						Console.ReadLine();
-						System.Environment.Exit(0);
-					}
-					else if((position == "water") && torch)
-					{
-						antwort = "Pffsch! The torch falls down on the wet floor an lost it's light. You really need to attend some psychomotility therapy... ";
-						antwort += "I mean, come on! A torch isn't that hard to hold properly, am I right? However, due to your high amount of stupidity, you're now standing in the dark again... ";
-						Console.WriteLine(antwort);
-						lostTorch = true;
-					}
-					break;
-
-				case "fight torch":
-				case "throw torch":
-					if((position == "door") && torch && monster)
-					{
-						antwort = "You throw the torch directly into the monsters face! Certainly, it doesn't care and keeps tearing you into pieces!\n";
-						antwort += "YOU DIEDEDED!";
-						Console.WriteLine(antwort);
-						Console.ReadLine();
-						System.Environment.Exit(0);
 					}
 					break;
 				
@@ -335,26 +352,6 @@ namespace TextAdventure
 					break;
 				
 				// [water]
-				case "light torch":
-					if((position == "water") && torch)
-					{
-						antwort = "Pffsch! The torch falls down on the wet floor an lost it's light. You really need to attend some psychomotility therapy... ";
-						antwort += "I mean, come on! A torch isn't that hard to hold properly, am I right? However, due to your high amount of stupidity, you're now standing in the dark again... ";
-						Console.WriteLine(antwort);
-						lostTorch = true;
-					}
-					break;
-				
-				case "search torch":
-				case "find torch":
-					if((position == "water") && lostTorch)
-					{
-						antwort = "Are you kidding me? Forget the torch! It's unbelievable murky and f***ing dark. You can't see a damn thing. You're blind like a mole, like an unborn baby, ";
-						antwort += "like an eyeless purple glossed snake ... you understand?!? ... like a freaking astronaut soaked into a black hole during a lovely space walk. You can't find it! The torch is gone!";
-						Console.WriteLine(antwort);
-					}
-					break;
-				
 				case "follow water":
 				case "go water":
 				case "walk water":
