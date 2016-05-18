@@ -18,15 +18,7 @@ namespace TextAdventure
 			// oder nach osten um in einem Baumhaus (vom Sebi) zu kommen
 			// der Benutzer kann hier Wasser trinken, Äpfel essen oder sich ausruhen
 
-<<<<<<< HEAD
-			Ding apfel = new Ding ("appleseed");
-			this.VerknuepfeDing( apfel );
 
-			MaliksDing apple = new MaliksDing ;
-			MaliksDing apfelsamen = new MaliksDing ;
-
-		
-=======
 
 
 			//Meine Dinge
@@ -38,7 +30,7 @@ namespace TextAdventure
 			this.VerknuepfeDing (water);
 
 
->>>>>>> master
+
 
 		}
 
