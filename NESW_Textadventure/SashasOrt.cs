@@ -19,7 +19,11 @@ namespace TextAdventure
 			beschrieb += "The light comes from the hole in the wall on the west side"; // west to Julians Ort
 
 			//HammerClass hammer = new HammerClass();
+<<<<<<< Updated upstream
 			//this.VerknuepfeDing(hammer);
+=======
+		//	this.VerknuepfeDing(hammer);
+>>>>>>> Stashed changes
 
 
 		}
