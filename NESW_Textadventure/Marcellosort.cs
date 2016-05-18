@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using TextAdventure;
 
 namespace TextAdventure
@@ -43,10 +46,15 @@ namespace TextAdventure
 
 				Console.WriteLine (antwort);
 			}  else if (in_kommando == "open book") {
+				if(IstDingKommando("Magic Book")){
 				string antwort = "you're holding the glowing book in your hands. As you open it, the glow increases infinitly. It's so bright that you have to close your eyes. The ground begins to shake...";
 				Console.WriteLine (antwort);
 				Ort neuer_ort = new ArnosOrt();
 				neuer_ort.LosGehts();
+				}else{
+					string antwort = "You don't have that...";
+					Console.WriteLine (antwort);
+				}
 			} else if (in_kommando == "squeeze") {
 				string antwort = "You breathe out and move your left arm into the small crack. You managed to pull yourself trough the crack. You are reliefed as you left the crack on the other side.";
 				Console.WriteLine (antwort);
