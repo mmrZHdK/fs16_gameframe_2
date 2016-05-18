@@ -26,8 +26,6 @@ namespace TextAdventure
 		}
 
 
-		Ding book = new Ding ("book");
-		Ding gab = new Ding ("crack in the wall");
 
 
 		public override void BehandleCustomCommand(string in_kommando){
