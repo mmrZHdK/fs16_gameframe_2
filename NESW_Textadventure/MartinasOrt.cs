@@ -26,7 +26,7 @@ namespace TextAdventure
 
 		}
 			
-		bool trapDoorOpen = false;
+		bool trapDoorOpen = false; // "Go downstairs" soll nur funktionieren, wenn die Falltüre offen ist
 
 		//Befehle, die nur in meinem Raum möglich sind
 		public override bool IstCustomCommand( string in_kommando )
