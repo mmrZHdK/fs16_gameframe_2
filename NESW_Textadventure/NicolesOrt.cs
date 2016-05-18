@@ -47,20 +47,17 @@ namespace TextAdventure
 			} else if (in_kommando == "move draperies") {
 				string antwort = "Behind the draperies you find a shattered pane. Shards laying around. ";
 				Console.WriteLine (antwort);
-			} else if (in_kommando == "move draperies") {
-				string antwort = "Behind the draperies you find a shattered pane. Shards laying around. ";
-				Console.WriteLine (antwort);
-				shardsFound = true;
+				shardsFound = true;			//Shard kann jetzt genommen werden!
 			} else if (in_kommando == "move pendulum") {
 				string antwort = "As soon as you bring the pendulum into movement, the clock starts ticking. The hands reach twelve o'clock and a bell rings somewhere far in the mansion. ";
 				Console.WriteLine (antwort);
 			} else if (in_kommando == "sit down") {
 				string antwort = "You sit down at the table. Nothing happens at all. ";
 				Console.WriteLine (antwort);
-			}	else if (in_kommando == "take shard" && shardsFound == false) {
+			}else if (in_kommando == "take shard" && shardsFound == false) {	//Shard kann erst aufgenommen werden, wenn er gefunden wurde!
 				string antwort = "Hmmm... that seems to be impossible around here. ";
 				Console.WriteLine (antwort);
-			}	else if (in_kommando == "take shard" && shardsFound == true) {
+			}else if (in_kommando == "take shard" && shardsFound == true) {		//Wenn die Vorhänge verschoben wurden)
 				string antwort = "You take up a glass shard. Be carefull- Oh well. A fine cut find its way to your finger. See? Sharp!";
 				Console.WriteLine (antwort);
 			} else if (in_kommando == "take fork") {
