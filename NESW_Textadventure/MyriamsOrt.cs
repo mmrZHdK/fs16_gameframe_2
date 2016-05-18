@@ -34,12 +34,20 @@ namespace TextAdventure
 		
 
 		}
+
+		//Befehle, die mit meinen Objekten und die in meinem Raum möglich sind 
 		public override bool IstCustomCommand( string in_kommando )
 		{
-			return false;
+			return ((in_kommando == "take knife") || (in_kommando == "take pear")) ;
 		}
 		public override void BehandleCustomCommand( string in_kommando )
-		{
+				{	if (in_kommando == "take knife") {
+				string antwort = "You take the sharp knife that lies on the floor.";
+				Console.WriteLine (antwort);
+			} else if (in_kommando == "take pear") {
+				string antwort = "You go to the table and take one pear out of the bowl.";
+				Console.WriteLine (antwort);
+				}
 		}
 	}
 }
