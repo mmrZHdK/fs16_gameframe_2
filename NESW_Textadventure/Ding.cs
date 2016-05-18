@@ -25,9 +25,7 @@ namespace TextAdventure
 			name = in_name;
 		}
 
-<<<<<<< HEAD
 
-=======
 		public void BehandleKommando( string in_kommando ) {
 			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
 
@@ -71,6 +69,6 @@ namespace TextAdventure
 			// Behandle spezielle Kommandos der Subklassen
 		}
 	
->>>>>>> 3288f73728295f8cc4ab1875003dfb1c67d259ee
+
 	}
 }

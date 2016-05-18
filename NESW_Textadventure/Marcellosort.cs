@@ -16,8 +16,8 @@ namespace TextAdventure
 			beschrieb += "The only source of light originates from the spine of a book. Self-illuminating, it seems...";
 			beschrieb += "It's quite far up the bookshelf, you can't reach it.";
 
-			Ding book = new Ding ("book");
-			this.VerknuepfeDing( book);
+			Ding magicbook = new Ding ("Magic Book");
+			this.VerknuepfeDing( magicbook);
 
 		}
 
@@ -31,10 +31,7 @@ namespace TextAdventure
 		}
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 3288f73728295f8cc4ab1875003dfb1c67d259ee
 
 
 		public override void BehandleCustomCommand(string in_kommando){
@@ -43,6 +40,7 @@ namespace TextAdventure
 				Console.WriteLine (antwort);
 			} else if (in_kommando == "take book") {
 				string antwort = "As you take the glowing book, a slight shiver runs down your spine...";
+
 				Console.WriteLine (antwort);
 			}  else if (in_kommando == "open book") {
 				string antwort = "you're holding the glowing book in your hands. As you open it, the glow increases infinitly. It's so bright that you have to close your eyes. The ground begins to shake...";
@@ -52,8 +50,11 @@ namespace TextAdventure
 			} else if (in_kommando == "squeeze") {
 				string antwort = "You breathe out and move your left arm into the small crack. You managed to pull yourself trough the crack. You are reliefed as you left the crack on the other side.";
 				Console.WriteLine (antwort);
-				// Selinas Raum aufrufen
-				//SelinasOrt.LosGehts ();
+				Ort neuer_ort = new SelinasOrt();
+
+
+				Console.WriteLine();  // Leerzeile ausgeben
+				neuer_ort.LosGehts ();	
 			}else if (in_kommando == "place ladder") {
 				string antwort = "You placed the ladder on the book shelf.";
 				Console.WriteLine (antwort);
