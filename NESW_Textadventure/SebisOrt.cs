@@ -1,6 +1,6 @@
 using System;
 
-namespace NESW_Textadventure
+namespace TextAdventure
 {
 	public class SebisOrt : Ort
 	{
