@@ -27,6 +27,8 @@ namespace TextAdventure
 		// sind
 		Dictionary<string, Ding> dinge =
 			new Dictionary<string, Ding>();
+
+		public Spieler spieler;
 		
 
 		// -- Konstruktor des allgemeinen Ortes ohne Parameter
@@ -70,6 +72,10 @@ namespace TextAdventure
 					Ort neuer_ort = verknuepfungen [kommando];
 					// Ort neuer_ort = verknuepfungen.VGet( kommando );
 
+					// Übergabe der Spieler Instanz an den nächsten Ort
+					neuer_ort.spieler = this.spieler;
+					this.spieler = null;
+
 					Console.WriteLine();  // Leerzeile ausgeben
 					neuer_ort.LosGehts ();	// neuen Ort ausführen
 
@@ -84,6 +90,10 @@ namespace TextAdventure
 				} else if ( kommando == "things" ) {
 					// Es ist ein allgemeines Kommando
 					DingListeAusgeben();
+				
+				} else if ( kommando == "inventory" ) {
+					// Gib Liste der Dinge aus, die der Spieler in der Tasche
+					spieler.InventarAusgeben();
 
 				} else {
 					Console.WriteLine ("Hmmm... that seems to be impossible around here.");
