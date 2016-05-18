@@ -43,6 +43,11 @@ namespace TextAdventure
 			// Variante mit SWITCH
 			switch (in_kommando) {
 
+			//case "take":
+				//Console.WriteLine ("Objekt aufgenommen");
+				//break;
+
+
 			case "examine":
 				Console.WriteLine (beschrieb);
 				break;

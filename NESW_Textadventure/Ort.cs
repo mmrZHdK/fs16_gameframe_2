@@ -233,6 +233,8 @@ namespace TextAdventure
 				String kommandoTeil = kommandoTeile [0];
 				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
 
+			
+
 				// Nimm den zweiten Teil (... dritten, vierten)
 
 				String dingName = kommandoTeile [1];
@@ -253,6 +255,13 @@ namespace TextAdventure
 						// benannt wurde
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
+						//if(kommandoTeil == "take"){
+
+						//Objekt dem Inventar hinzufuegen
+						//spieler.Inventar.Add(ding);
+						//Objekt aus Ort-Dictionary entfernen
+						//dinge.Remove(dingName);
+						//	}
 						ding.BehandleKommando (kommandoTeil);
 						identifiziert = true;
 					}
