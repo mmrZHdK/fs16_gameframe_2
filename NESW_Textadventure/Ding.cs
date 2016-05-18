@@ -48,8 +48,9 @@ namespace TextAdventure
 
 			case "destroy":
 				this.WechseleStatus ("zerstoert");
-				Console.WriteLine ("You destroyed " + name);
-				Console.WriteLine ("Don't you feel sorry for that?...");
+				Console.WriteLine ("You " + name);
+                Console.WriteLine(beschrieb);
+                Console.WriteLine ("Don't you feel sorry for that?...");
 				break;
 
 			default:
