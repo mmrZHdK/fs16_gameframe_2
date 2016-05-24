@@ -175,6 +175,12 @@ namespace TextAdventure
 			dinge[ in_ding.name ] = in_ding;
 		}
 
+		public void EntferneDing ( Ding in_ding )
+		{
+			// Loesche das Ding aus dem Dictionary
+			dinge.Remove[in_ding.name];
+		}
+
 		public bool IstDingKommando( string in_kommando ) {
 
 			// Teile das Kommando auf
