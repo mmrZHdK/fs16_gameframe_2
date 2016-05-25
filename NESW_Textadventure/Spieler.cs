@@ -28,9 +28,6 @@ namespace TextAdventure
 
 
 
-
-
-
 		public void PlaceInInventory(Ding in_neues_ding){			//Placing the new item in the dictionary
 			inventar.Add (in_neues_ding.name, in_neues_ding);
 		}

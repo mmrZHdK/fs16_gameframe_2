@@ -267,7 +267,7 @@ namespace TextAdventure
 						}
 
 						identifiziert = true;
-						break;		// leave the loop
+						break;		// leave loop
 					}
 				}
 

@@ -36,7 +36,7 @@ namespace TextAdventure
 			return ((in_kommando == "examine tool") || (in_kommando == "examine broom") || 
 			(in_kommando == "examine hose") || (in_kommando == "examine board") ||
 			//(in_kommando == "take crowbar") ||
-			//(in_kommando == "take rope") ||
+			(in_kommando == "examine rope") ||
 			(in_kommando == "open trap door") || (in_kommando == "go downstairs"));
 			
 
@@ -59,10 +59,9 @@ namespace TextAdventure
 			//	string antwort = ("\nYou take the crowbar, after you removed the cobwebs on it,\nof course.\n");
 				//Ding crowbar in inventar
 		//		Console.WriteLine (antwort);
-			//} else if (in_kommando == "take rope") {
-			//	string antwort = ("\nThe rope is attached to the floor.\nYou pull harder and the rope snaps\nYou now have a torn piece of rope.\nYou examine the place where the rope was tied to.\nYou can see a trap door, hiding under the dust.\n");
-				//Ding rope in inventar (braucht jemand ein rope??)
-			//	Console.WriteLine (antwort);
+			} else if (in_kommando == "examine rope") {
+				string antwort = ("\nThe rope is attached to the floor.\nYou pull on it and the rope snaps\nYou now have a torn piece of rope.\nYou examine the place where the rope was tied to.\nYou can see a trap door, hiding under the dust.\n");
+				Console.WriteLine (antwort);
 			} else if (in_kommando == "open trap door")  { //| (in_kommando == "open door") {
 
 				// if Ding crowbar in inventar:
