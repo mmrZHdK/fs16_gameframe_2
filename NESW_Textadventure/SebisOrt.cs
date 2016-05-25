@@ -29,8 +29,7 @@ namespace TextAdventure
 		//Befehle, die nur in meinem Raum möglich sind
 		public override bool IstCustomCommand(string in_kommando){
 
-			return ((in_kommando == "look") || (in_kommando == "take honeybadger") || (in_kommando == "take bonsai") || (in_kommando == "use honeybadger") || (in_kommando == "cut leaves")) ;
-			return ((in_kommando == "use key") || (in_kommando == "use zipline")) ;
+			return ((in_kommando == "look") || (in_kommando == "take honeybadger") || (in_kommando == "take bonsai") || (in_kommando == "use honeybadger") || (in_kommando == "cut leaves") || (in_kommando == "use key") || (in_kommando == "use zipline")) ;
 
 			//	meine Commands sind look | take | use | cut
 
