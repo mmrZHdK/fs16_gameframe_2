@@ -3,15 +3,14 @@ using TextAdventure;
 
 namespace TextAdventure
 {
-	public class Ding
+	public class SebiDing : Ding // Macht eine Instanz von SebiDing , : Ding = erbt von DIng klasse
 	{
 
-		public string name = "untitled item";
-		public string beschrieb;
 
-		public Ding ( string in_name )
+
+		public SebiDing ( string in_name ) // konstruktor erzeugt Instanz , ein argument string in _name
 		{
-			name = in_name;
+			name = in_name; // instanz umbennen von untitled item 
 		}
 
 		public void BehandleKommando( string in_kommando ) {
