@@ -26,8 +26,8 @@ namespace TextAdventure
 			this.VerknuepfeDing (messer);
 
 
-			MyriamsDing apfel = new MyriamsDing (/*"apple"*/);
-			this.VerknuepfeDing (apfel);
+			//MyriamsDing apfel = new MyriamsDing (/*"apple"*/);
+			//this.VerknuepfeDing (apfel);
 
 
 		//	beschrieb += "The woody old door leads you to the pantry.";//South. Speisekammer von Selina
