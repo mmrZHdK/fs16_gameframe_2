@@ -30,17 +30,13 @@ namespace TextAdventure
 		//Befehle, die nur in meinem Raum möglich sind
 		public override bool IstCustomCommand(string in_kommando){
 
-			return ((in_kommando == "look") || (in_kommando == "take food") || (in_kommando == "squeeze thorugh") || (in_kommando == "catch rat") || (in_kommando == "cook ravioli")) ;
+			return ((in_kommando == "look") || (in_kommando == "squeeze thorugh") || (in_kommando == "catch rat") || (in_kommando == "cook ravioli")) ;
 
 		}
 
 		public override void BehandleCustomCommand(string in_kommando){
 			if (in_kommando == "look") {
 				string antwort = "You take a closer look at the walls and find a crack in the east wall! It's big enough for a human to squeeze through. ";
-				Console.WriteLine (antwort);
-
-			} else if (in_kommando == "take food") {
-				string antwort = "You take a can. It's tagged 'ravioli'. ";
 				Console.WriteLine (antwort);
 
 			} else if (in_kommando == "cook ravioli") {

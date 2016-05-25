@@ -175,6 +175,11 @@ namespace TextAdventure
 			dinge[ in_ding.name ] = in_ding;
 		}
 
+		//Dinge aus dem Raum Dictionary löschen
+		public void RemoveFromRoom(Ding in_ding){
+			dinge.Remove (in_ding.name);
+		}
+
 		public bool IstDingKommando( string in_kommando ) {
 
 			// Teile das Kommando auf
@@ -254,7 +259,20 @@ namespace TextAdventure
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
 						ding.BehandleKommando (kommandoTeil);
+
+						// alle Dinge können mit "take" ins Inventar genommen werden
+						if (kommandoTeil == "take") {
+							//löscht Ding im Raum
+							RemoveFromRoom (ding);
+							//platziert Ding im Inventar
+							spieler.PlaceInInventar (ding);
+							Console.WriteLine (ding.name + " is now in your inventory. ");
+						} else {
+							ding.BehandleKommando (kommandoTeil);
+						}
+
 						identifiziert = true;
+						break; //um den Loop zu verlassen
 					}
 				}
 

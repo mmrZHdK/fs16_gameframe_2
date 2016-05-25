@@ -11,7 +11,7 @@ namespace TextAdventure
 		public SelinaDing (string in_name) : base(in_name)
 		{
 			
-			//beschrieb = "It's a cut little thing with sharp teeth. ";
+			beschrieb = "It's a cut little thing with sharp teeth. ";
 			name = "rat";
 			
 		}
