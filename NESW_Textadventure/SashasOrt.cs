@@ -18,14 +18,14 @@ namespace TextAdventure
 			beschrieb += "The stairs to the library are on the north side of the dungeon";//north to library
 			beschrieb += "The light comes from the hole in the wall on the west side"; // west to Julians Ort
 
-			//HammerClass hammer = new HammerClass();
-			//this.VerknuepfeDing(hammer);
+			HammerClass hammer = new HammerClass();
+			this.VerknuepfeDing(hammer);
 
 
 		}
 
 		public override bool IstCustomCommand (string in_kommando){
-			return (in_kommando == "take torch" || in_kommando == "light torch" || in_kommando == "take dust" || in_kommando == "push torch"|| in_kommando ==  "take hammer");
+			return (in_kommando == "take torch" || in_kommando == "light torch" || in_kommando == "take dust" || in_kommando == "push torch");
 		}
 		public override void BehandleCustomCommand(string in_kommando){
 			if (in_kommando == "take torch") {
@@ -54,12 +54,7 @@ namespace TextAdventure
 
 				Console.WriteLine (antwort);
 			}
-			else if (in_kommando == "take hammer") {
-				string antwort = "You pick up a hammer. ";
-				antwort += "It's always good to have an old good hammer with you.";
 
-				Console.WriteLine (antwort);
-			}
 
 			/*if (in_kommando == "s") {
 				string antwort = "You could try to examine the torch, but you just go through the wall like a ghost.";

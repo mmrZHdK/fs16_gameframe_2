@@ -4,6 +4,12 @@ using System.Linq;
 
 using TextAdventure;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using TextAdventure;
+
 namespace TextAdventure
 {
 	// Eine Implementierung des Standard Ortes
@@ -29,12 +35,12 @@ namespace TextAdventure
 			new Dictionary<string, Ding>();
 
 		public Spieler spieler;
-		
+
 
 		// -- Konstruktor des allgemeinen Ortes ohne Parameter
 		public Ort ()
 		{
-			
+
 		}
 
 		// -- Konstruktor des allgemeinen Ortes mit Name
@@ -90,7 +96,7 @@ namespace TextAdventure
 				} else if ( kommando == "things" ) {
 					// Es ist ein allgemeines Kommando
 					DingListeAusgeben();
-				
+
 				} else if ( kommando == "inventory" ) {
 					// Gib Liste der Dinge aus, die der Spieler in der Tasche
 					spieler.InventarAusgeben();
@@ -174,7 +180,9 @@ namespace TextAdventure
 			// Dictionary für dinge
 			dinge[ in_ding.name ] = in_ding;
 		}
-
+		public void RemoveFromRoom(Ding in_ding){    //function for removing things from rooms
+			dinge.Remove (in_ding.name);
+		}
 		public bool IstDingKommando( string in_kommando ) {
 
 			// Teile das Kommando auf
@@ -254,7 +262,17 @@ namespace TextAdventure
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
 						ding.BehandleKommando (kommandoTeil);
+						if (kommandoTeil == "take") {
+							RemoveFromRoom (ding);         //remove item from room
+							spieler.PlaceInInventar(ding);   //add item in inventory
+							Console.WriteLine (ding.name + " is placed in inventory.");
+
+						} else {
+							ding.BehandleKommando (kommandoTeil);
+						}
+
 						identifiziert = true;
+						break; 						//go out from the loop
 					}
 				}
 
