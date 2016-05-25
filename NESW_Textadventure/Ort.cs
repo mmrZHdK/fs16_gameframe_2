@@ -179,7 +179,7 @@ namespace TextAdventure
 		{
 			// Speichere das Ding unter seinem Namen im
 			// Dictionary für dinge
-			dinge.Remove[in_ding.name];
+			dinge.Remove(in_ding.name);
 		}
 
 		public bool IstDingKommando( string in_kommando ) {

@@ -50,6 +50,7 @@ namespace TextAdventure
 				string antwort = "You return to the hidden book chamber. ";
 				antwort += "The book in your hands reminds you of something... ";
 				antwort += "What a curious incident it was. Let us never speak of it again. ";
+				spieler.AusInventar(mindray);
 				Console.WriteLine (antwort);
 			} else if (in_kommando == "take mousebook") {
 				string antwort = "It is bound in what appears to be human skin. The inscription on its ridge reads ";
