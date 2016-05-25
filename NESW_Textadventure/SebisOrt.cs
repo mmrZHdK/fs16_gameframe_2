@@ -59,7 +59,7 @@ namespace TextAdventure
 				string antwort = "woooooooooooooooooooooohooooooooooooooooooooooooooooooooo";
 				Console.WriteLine (antwort);
 				// Martina Raum aufrufen
-				// MartinasOrt.LosGehts ();
+				MartinasOrt.LosGehts ();
 				// danach freies bewegen im raum ( n = michi, e = malik )
 				//				
 
