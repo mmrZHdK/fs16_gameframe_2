@@ -3,18 +3,18 @@ using TextAdventure;
 
 namespace TextAdventure
 {
-	public class Ding
+	public class SebiDing : Ding
 	{
 
-		public string name = "untitled item";
-		public string beschrieb;
 
-		public Ding ( string in_name )
+
+
+		public SebiDing ( string in_name )
 		{
 			name = in_name;
 		}
-
-		public void BehandleKommando( string in_kommando ) {
+		/*
+		public override void BehandleKommando( string in_kommando ) {
 			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
 
 			
@@ -24,13 +24,13 @@ namespace TextAdventure
 
 			case "take":
 				this.WechseleStatus ("nehmen");
-				Console.WriteLine ("You took " + name "in your Hand");
+				Console.WriteLine ("You took " + name + "in your Hand");
 				Console.WriteLine ("Don't you feel sorry for that?...");
-				use;
+				break;
 
 			default:
 				this.BehandleSpeziellesKommando (in_kommando);
-				use;
+				break;
 			}
 		}
 
@@ -42,7 +42,7 @@ namespace TextAdventure
 
 		public virtual void BehandleSpeziellesKommando( string in_kommando ) {
 			// Behandle spezielle Kommandos der Subklassen
-		}
+		}*/
 	
 	}
 }

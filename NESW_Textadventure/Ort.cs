@@ -246,7 +246,7 @@ namespace TextAdventure
 					// lokalen Variable ding enthält erstes Ding
 
 					// Namen aus dem Eintrag holen (Key)
-					String name = dingEintrag.Key;
+//					String name = dingEintrag.Key;
 
 					// Vergleiche: Zweiter Teil in_kommando
 					if (name == dingName) {
@@ -255,14 +255,15 @@ namespace TextAdventure
 						// benannt wurde
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
-						//if(kommandoTeil == "take"){
-
-						//Objekt dem Inventar hinzufuegen
-						//spieler.Inventar.Add(ding);
-						//Objekt aus Ort-Dictionary entfernen
-						//dinge.Remove(dingName);
-						//	}
-						ding.BehandleKommando (kommandoTeil);
+						if(kommandoTeil == "take"){
+							
+							//Objekt dem Inventar hinzufuegen
+							spieler.Inventar.Add(ding);
+							//Objekt aus Ort-Dictionary entfernen
+							dinge.Remove(dingName);
+						}else{
+							ding.BehandleKommando (kommandoTeil);
+						}
 						identifiziert = true;
 					}
 				}

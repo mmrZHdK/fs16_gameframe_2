@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//Mach Listen-Benutzung möglich!
 using TextAdventure;
 
 namespace TextAdventure
@@ -7,7 +8,7 @@ namespace TextAdventure
 	public class Spieler
 	{
 
-		public List Inventar = new List<Ding>();
+		public List<Ding> Inventar = new List<Ding>();
 
 		public Spieler ()
 		{
@@ -19,5 +20,6 @@ namespace TextAdventure
 		public void InventarAusgeben() {
 			Console.WriteLine ("You've got nothing in your pocket, sorry.");
 		}
+
 	}
 }
