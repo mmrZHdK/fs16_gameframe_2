@@ -16,6 +16,12 @@ namespace TextAdventure
 			beschrieb += "The Wind is shaking the little Treehouse";
 			beschrieb += "Is there something beneath the dead Honeybadger?";
 			// Beschrieb meines Ortes
+
+
+			Ding KeyBonsai = new Ding ("Key");
+			this.VerknuepfeDing(KeyBonsai);
+			Ding Honeybadger = new Ding ("Honeybadger");
+			this.VerknuepfeDing(Honeybadger);
 		}
 
 
