@@ -3,7 +3,7 @@ using TextAdventure;
 
 namespace TextAdventure
 {
-	public class Ding
+	public class SebiDing : Ding
 	{
 
 		public string name = "untitled item";

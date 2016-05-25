@@ -174,6 +174,9 @@ namespace TextAdventure
 			// Dictionary für dinge
 			dinge[ in_ding.name ] = in_ding;
 		}
+		public void RemoveFromRoom(Ding in_ding) {		// function for removing ding from room
+			dinge.Remove (in_ding.name);
+		}
 
 		public bool IstDingKommando( string in_kommando ) {
 
@@ -254,7 +257,17 @@ namespace TextAdventure
 						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
 						ding.BehandleKommando (kommandoTeil);
+						if (kommandoTeil == "take") {
+							RemoveFromRoom (ding);	//removes Ding from room
+							spieler.PlaceInInventory (ding); //puts Ding in inventory
+							Console.WriteLine (ding.name + " is placed in your backpack.");
+
+					} else {
+							ding.BehandleKommando (kommandoTeil);
+						}
+
 						identifiziert = true;
+						break;		// leave the loop
 					}
 				}
 
