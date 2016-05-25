@@ -8,8 +8,8 @@ namespace TextAdventure
 		
 		public MyriamsDing () 
 		{
-			name = "apple";
-			beschrieb = "red perfect";
+			name = "pear";
+			beschrieb = "perfect green";
 		}
 	}
 }
