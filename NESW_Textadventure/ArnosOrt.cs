@@ -5,6 +5,8 @@ namespace TextAdventure
 {
 	public class ArnosOrt : Ort
 	{
+		Ding mindray = new Ding ("mindray");
+
 		public ArnosOrt ()
 		{
 			name = "Colony of the Mouse-People";
@@ -29,7 +31,6 @@ namespace TextAdventure
 			//Ein weiteres Buch mit einer Maus, "mouse-book", benutze mit "take", "read"
 			//Befehle, um nichts zu machen, "stay" und "sleep"
 
-			Ding mindray = new Ding ("mindray");
 			this.VerknuepfeDing( mindray );
 			//DingMousebook mousebook = new DingMousebook ("mousebook");
 			//this.VerknuepfeDing( mousebook );
@@ -43,6 +44,8 @@ namespace TextAdventure
 			if (in_kommando == "take mindray") {
 				string antwort = "Shiny, but ineffective Steampunk Design. There are unnecessary cogs and lightbulbs everywhere. ";
 				Console.WriteLine (antwort);
+				spieler.ZuInventar(mindray);
+				EntferneDing(mindray);
 			} else if (in_kommando == "use mindray") {
 				string antwort = "You return to the hidden book chamber. ";
 				antwort += "The book in your hands reminds you of something... ";

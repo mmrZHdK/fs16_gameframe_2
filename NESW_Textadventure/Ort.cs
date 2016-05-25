@@ -177,7 +177,8 @@ namespace TextAdventure
 
 		public void EntferneDing ( Ding in_ding )
 		{
-			// Loesche das Ding aus dem Dictionary
+			// Speichere das Ding unter seinem Namen im
+			// Dictionary für dinge
 			dinge.Remove[in_ding.name];
 		}
 
