@@ -21,6 +21,25 @@ namespace TextAdventure
 			inventar.Add (in_neues_ding.name, in_neues_ding);
 		}
 
+		public Ding RemoveFromInventar(string thing){
+			Ding ding = inventar [thing];
+			inventar.Remove (thing);
+			return ding;
+		}
+
+		public bool IsItInInventar(string whatToSearch){
+			
+			bool yes = false;
+			foreach (var item in inventar) {
+				String das = item.Key;
+				if (das == whatToSearch) {
+					yes = true;
+				} else {
+				}
+			}
+			return yes;
+		
+		}
 
 		public void InventarAusgeben() {
 			if (inventar.Count>0){

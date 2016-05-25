@@ -11,6 +11,8 @@ namespace TextAdventure
 		{
 			name = "hammer"; 
 			beschrieb = "The hammer looks great. It looks like you can break something with it.";
+			sichtbar = true;
+			takeable = true;
 
 		}
 	}

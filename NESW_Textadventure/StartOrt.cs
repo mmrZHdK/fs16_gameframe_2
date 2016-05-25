@@ -21,8 +21,11 @@ namespace TextAdventure
 
 			// erzeuge ein neues Standard Ding mit Namen
 			Ding apfel = new Ding ("apple");
+			apfel.sichtbar = true;
+			apfel.takeable = false;
 			this.VerknuepfeDing( apfel );
 			Ding ei = new Ding ("egg");
+			ei.takeable = true;
 			this.VerknuepfeDing( ei );
 
 			// erzeuge ein neues Standard Ding mit dem neuen Konstruktor

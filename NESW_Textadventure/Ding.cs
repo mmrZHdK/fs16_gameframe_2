@@ -9,6 +9,8 @@ namespace TextAdventure
 		// Der Name eines Dings
 		public string name = "untitled item";
 		public string beschrieb;
+		public bool sichtbar;
+		public bool takeable;
 
 		public Ding ()
 		{
@@ -26,7 +28,7 @@ namespace TextAdventure
 		}
 
 		public void BehandleKommando( string in_kommando ) {
-			Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
+			//Console.WriteLine ("-- Das Ding " + name + " behandelt das Kommando " + in_kommando);
 
 			// allgemeine Ding Kommandos behandeln
 			// Variante mit IF ELSE IF ELSE

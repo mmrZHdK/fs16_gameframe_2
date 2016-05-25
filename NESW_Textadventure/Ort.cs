@@ -4,11 +4,6 @@ using System.Linq;
 
 using TextAdventure;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using TextAdventure;
 
 namespace TextAdventure
 {
@@ -141,7 +136,7 @@ namespace TextAdventure
 		// sich im Ort befinden
 		//                                          -|
 		public void DingListeAusgeben() {
-			Console.Write( "You can see the following things around here: " );
+			Console.Write( "You can see the following things around here: \n" );
 
 			// Liste der Einträge in dinge ausgeben
 			// Schlaufe durch alle Einträge in dinge
@@ -151,10 +146,15 @@ namespace TextAdventure
 			foreach ( var ding_eintrag in dinge ) {
 				string name = ding_eintrag.Key;
 
-				if ( !ding_eintrag.Equals( dinge.Last() ) ) {
-					Console.Write( name + ", " );
+				if (!ding_eintrag.Equals (dinge.Last ())) {
+					if (ding_eintrag.Value.sichtbar == true) {
+						Console.Write (name + "\n");
+					}
+
+				} else if (ding_eintrag.Value.sichtbar == true) {
+					Console.WriteLine (name);
 				} else {
-					Console.WriteLine( name );
+					Console.WriteLine ("\n");
 				}
 			}
 		}
@@ -191,18 +191,26 @@ namespace TextAdventure
 
 			if (kommandoTeile.Count() < 2) {
 				// keine Zweiwort Satz, also auch kein Ding Kommando
-				Console.WriteLine ("-- sorry, kein zweites Wort da");
+				//Console.WriteLine ("-- sorry, kein zweites Wort da");
 				return false;
 
 			} else {
 				// Resultat zwei einzelne Strings (können auch mehr sein)
 				String kommandoTeil = kommandoTeile [0];
-				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
+				//Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
 
 				// Nimm den zweiten Teil (... dritten, vierten)
 
 				String dingName = kommandoTeile [1];
-				Console.WriteLine ("-- dingName:" + dingName);
+				//Console.WriteLine ("-- dingName:" + dingName);
+
+				if (kommandoTeil == "drop") {
+					if (spieler.IsItInInventar (dingName)) {
+						Ding backItem = spieler.RemoveFromInventar (dingName);
+						this.dinge.Add (dingName, backItem);
+						Console.WriteLine ("You dropped " + dingName);
+					}
+				}
 
 				// Schlaufe durchs Dictionary dinge durch
 				foreach (var dingEintrag in dinge) {
@@ -216,13 +224,13 @@ namespace TextAdventure
 						// Juchu! Es gibt ein Ding im Dictionary
 						// mit dem gleichen Namen, der im Kommando
 						// benannt wurde
-						Console.WriteLine ("-- Juchu, " + name + " ist hier bekannt");
+						//Console.WriteLine ("-- Juchu, " + name + " ist hier bekannt");
 						return true;
 					}
 				}
 
 				// Schlaufe durch, keine Übereinstimmung gefunden
-				Console.WriteLine ("-- kein Ding im Dictionary");
+				//Console.WriteLine ("-- kein Ding im Dictionary");
 				return false;
 			}
 		}
@@ -234,20 +242,28 @@ namespace TextAdventure
 
 			if (kommandoTeile.Count () < 2) {
 				// keine Zweiwort Satz, also auch kein Ding Kommando
-				Console.WriteLine ("-- sorry, kein zweites Wort da");
+				//Console.WriteLine ("-- sorry, kein zweites Wort da");
 
 			} else {
 				// Resultat zwei einzelne Strings (können auch mehr sein)
 				String kommandoTeil = kommandoTeile [0];
-				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
+				//Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
 
 				// Nimm den zweiten Teil (... dritten, vierten)
 
 				String dingName = kommandoTeile [1];
-				Console.WriteLine ("-- dingName:" + dingName);
+				//Console.WriteLine ("-- dingName:" + dingName);
 
 				bool identifiziert = false;
 				// Schlaufe durchs Dictionary dinge durch
+				/*if (kommandoTeil == "drop") {
+					Console.WriteLine ("Yay!");
+					if (spieler.IsItInInventar (dingName)) {
+						spieler.RemoveFromInventar (dingName);
+						Console.WriteLine (dingName + "is dropped");
+					}
+				}*/
+
 				foreach (var dingEintrag in dinge) {
 					// lokalen Variable ding enthält erstes Ding
 
@@ -255,20 +271,23 @@ namespace TextAdventure
 					String name = dingEintrag.Key;
 
 					// Vergleiche: Zweiter Teil in_kommando
+					 
+
 					if (name == dingName) {
 						// Juchu! Es gibt ein Ding im Dictionary
 						// mit dem gleichen Namen, der im Kommando
 						// benannt wurde
-						Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
+						//Console.WriteLine ("-- Juchu, " + name + " ist identifiziert, Kommando weitergeben");
 						Ding ding = dingEintrag.Value;
 						ding.BehandleKommando (kommandoTeil);
-						if (kommandoTeil == "take") {
+						if (kommandoTeil == "take" && ding.takeable) {
 							RemoveFromRoom (ding);         //remove item from room
-							spieler.PlaceInInventar(ding);   //add item in inventory
+							spieler.PlaceInInventar (ding);   //add item in inventory
 							Console.WriteLine (ding.name + " is placed in inventory.");
+						} 
+						else if (kommandoTeil == "take" && !ding.takeable){
+							Console.WriteLine ("You can't take it");
 
-						} else {
-							ding.BehandleKommando (kommandoTeil);
 						}
 
 						identifiziert = true;
