@@ -143,12 +143,19 @@ namespace TextAdventure
 			// - name des Dings
 			// - Komma, wenn nicht das letzte
 			foreach ( var ding_eintrag in dinge ) {
+
+		
+
 				string name = ding_eintrag.Key;
 
-				if ( !ding_eintrag.Equals( dinge.Last() ) ) {
-					Console.Write( name + ", " );
+				if (!ding_eintrag.Equals (dinge.Last ())) {
+					if (ding_eintrag.Value.sichtbar == true) {
+						Console.Write (name + ", ");
+					}
+				} else if (ding_eintrag.Value.sichtbar == true){
+					Console.WriteLine (name);
 				} else {
-					Console.WriteLine( name );
+					Console.WriteLine( " " );
 				}
 			}
 		}
@@ -201,6 +208,16 @@ namespace TextAdventure
 				String dingName = kommandoTeile [1];
 				Console.WriteLine ("-- dingName:" + dingName);
 
+				if (kommandoTeil == "drop") {
+
+					if (spieler.IstInInventar (dingName)) {
+
+						Ding KopieDing = spieler.RemoveFromInventar (dingName);
+						this.dinge.Add (dingName, KopieDing);
+						Console.WriteLine ("You dropped " + dingName);
+					}
+				}
+
 				// Schlaufe durchs Dictionary dinge durch
 				foreach (var dingEintrag in dinge) {
 					// lokalen Variable ding enthält erstes Ding
@@ -233,17 +250,24 @@ namespace TextAdventure
 				// keine Zweiwort Satz, also auch kein Ding Kommando
 				Console.WriteLine ("-- sorry, kein zweites Wort da");
 
+			
+
 			} else {
 				// Resultat zwei einzelne Strings (können auch mehr sein)
-				String kommandoTeil = kommandoTeile [0];
+				String kommandoTeil = kommandoTeile [0]; //Verb
 				Console.WriteLine ("-- kommandoTeil:" + kommandoTeil);
 
 				// Nimm den zweiten Teil (... dritten, vierten)
 
-				String dingName = kommandoTeile [1];
+				String dingName = kommandoTeile [1]; //Nomen
+
+				//if (dingName ist im Dictionary der Klasse Inventar im Spieler){DropItem();}
+
 				Console.WriteLine ("-- dingName:" + dingName);
 
+
 				bool identifiziert = false;
+
 				// Schlaufe durchs Dictionary dinge durch
 				foreach (var dingEintrag in dinge) {
 					// lokalen Variable ding enthält erstes Ding
@@ -262,12 +286,20 @@ namespace TextAdventure
 
 						// alle Dinge können mit "take" ins Inventar genommen werden
 						if (kommandoTeil == "take") {
-							//löscht Ding im Raum
-							RemoveFromRoom (ding);
-							//platziert Ding im Inventar
-							spieler.PlaceInInventar (ding);
-							Console.WriteLine (ding.name + " is now in your inventory. ");
-						} else {
+							if (ding.mitnehmbar == true) {
+								
+								//löscht Ding im Raum
+								RemoveFromRoom (ding);
+								//platziert Ding im Inventar
+								spieler.PlaceInInventar (ding);
+								Console.WriteLine (ding.name + " is now in your inventory. ");
+							} else {
+
+								Console.WriteLine ("Sorry, but you can't put that in your inventory. ");
+
+							}
+						} 
+						else {
 							ding.BehandleKommando (kommandoTeil);
 						}
 

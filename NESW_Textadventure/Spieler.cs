@@ -22,6 +22,29 @@ namespace TextAdventure
 			inventar.Add (in_neues_ding.name, in_neues_ding);
 		}
 
+		public Ding RemoveFromInventar(string thing){
+			Console.WriteLine ("Ja, bin da. ");
+			Ding ding = inventar [thing];
+			inventar.Remove (thing);
+			return ding;
+		}
+
+
+		//Ist das besagte Ding im Inventar?
+
+		public bool IstInInventar(string wasSuchen){
+
+			Console.WriteLine ("ja, 'ist in Inventar' funktioniert gut. ");
+			bool ja = false;
+			foreach (var item in inventar) {
+				String das = item.Key;
+				if (das == wasSuchen) {
+					ja = true;
+				} else {
+				}
+			}
+			return ja;
+		}
 
 		public void InventarAusgeben() {
 			//prüfen, ob etwas im Inventar ist

@@ -9,6 +9,8 @@ namespace TextAdventure
 		// Der Name eines Dings
 		public string name = "untitled item";
 		public string beschrieb;
+		public bool mitnehmbar = true;
+		public bool sichtbar = true;
 
 		public Ding ()
 		{
@@ -51,6 +53,8 @@ namespace TextAdventure
 				Console.WriteLine ("You destroyed " + name);
 				Console.WriteLine ("Don't you feel sorry for that?...");
 				break;
+
+				
 
 			default:
 				this.BehandleSpeziellesKommando (in_kommando);

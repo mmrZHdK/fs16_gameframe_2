@@ -13,6 +13,7 @@ namespace TextAdventure
 			
 			beschrieb = "It's a cut little thing with sharp teeth. ";
 			name = "rat";
+			mitnehmbar = false;
 			
 		}
 	}
