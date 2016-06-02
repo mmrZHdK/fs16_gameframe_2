@@ -107,9 +107,6 @@ namespace TextAdventure
 			tobias_ort.VerknuepfeOrt( "s", maliks_ort );
 			// TODO
 
-			// Mache eine neue Spieler Instanz
-			Spieler spieler = new Spieler();
-			start_ort.spieler = spieler;
 
 			// -- Start Ort aktivieren
 			// Der Ort, an dem das Adventure beginnt,
